@@ -57,6 +57,25 @@ python tools/brand_clip.py <input.mp4> [--name slug] [--music bed.wav]
 - Reports runtime, mean/max volume; writes a QC frame of the endcard
 - Verified end-to-end on `vp1_ricky.mp4` (3.16s → 5.56s branded)
 
+## Update — Meta Model API integration (dev.meta.ai)
+
+Official Responses API at `https://api.meta.ai/v1` (Bearer `MODEL_API_KEY`,
+OpenAI-compatible). Implemented in `tools/meta_provider.py`, wired into
+`brand_clip.py --meta-qc` and the ep3 runbook.
+
+| Capability | Model | Status | Cost |
+|---|---|---|---|
+| Model discovery | — | `meta_provider.py models` | free |
+| Video understanding QC | `muse-ember-1.0` (default) / `muse-spark-1.3` | `qc` subcommand → structured JSON report vs episode brief | per-token: Ember $0.10/$0.50 Mtok, Spark $1.25/$4.25 Mtok — est cents per clip |
+| Image generation | `muse-image-1.0` | `image` subcommand → PNG + metadata sidecar | **$0.01/image** |
+| Segmentation | `sam-3.1` | `sam` subcommand (optional only) | per image/frame |
+| **Video generation** | — | **does not exist on this API** | — |
+
+Safety: all subcommands refuse without `--paid`; key read from env only,
+never logged; `store:false` keeps nothing server-side. Contributor-mode
+models ($0.10/$0.20 Mtok) deliberately NOT used — they train on your
+content. Model QC output is advisory — human review stays the gate.
+
 ## Resulting production flow
 
 1. **Manual (Meta side):** prompt ChatGPT image → Meta AI app → Animate →

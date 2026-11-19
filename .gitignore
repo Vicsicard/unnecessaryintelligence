@@ -32,6 +32,7 @@ production/**/layers/*.png
 
 # external-media intake scratch — inputs aren't ours to commit
 production/_intake/
+production/ep3/source/
 
 # validation outputs — regenerable
 validation/out/

@@ -41,6 +41,10 @@ def main():
     ap.add_argument("--endcard-duration", type=float, default=1.8)
     ap.add_argument("--music")
     ap.add_argument("--qc-dir")
+    ap.add_argument("--brief", help="episode brief .txt/.md for optional Meta video QC")
+    ap.add_argument("--meta-qc", action="store_true",
+                    help="run Model API video QC on the BRANDED export (paid; needs MODEL_API_KEY)")
+    ap.add_argument("--meta-qc-model", default="muse-ember-1.0")
     a = ap.parse_args()
 
     src = os.path.abspath(a.input)
@@ -63,12 +67,29 @@ def main():
     has_audio = bool(probe_json(src, "stream", ["-select_streams", "a:0"]).get("streams"))
     print(f"input: {vs['width']}x{vs['height']} {dur:.2f}s audio={'yes' if has_audio else 'NO'}")
 
+    # ── preflight ────────────────────────────────────────────────────
+    warns = []
+    ar = vs["width"] / vs["height"]
+    if abs(ar - 9 / 16) > 0.02:
+        loss = max(0, (1 - (9 / 16) / ar) * 100)
+        warns.append(f"aspect {ar:.3f} vs 9:16 target — center-crop loses ~{loss:.0f}% of width"
+                     if ar > 9 / 16 else f"aspect {ar:.3f} — pillarboxed content loses height")
+    if dur > 120: warns.append(f"long source {dur:.1f}s — endcard branding still applies, verify intent")
+    dec = run(["ffmpeg", "-v", "error", "-i", src, "-f", "null", "-"])
+    if dec.stderr.strip(): warns.append(f"decode errors: {dec.stderr.strip()[:160]}")
+    if has_audio:
+        vol = run(["ffmpeg", "-i", src, "-af", "volumedetect", "-f", "null", "-"]).stderr
+        mm = [l for l in vol.splitlines() if "max_volume" in l]
+        if mm and float(mm[0].split("max_volume:")[1].split("dB")[0]) > -0.2:
+            warns.append("source audio near 0dBFS — output limiter will catch, but source may clip")
+    for w in warns: print("  PREFLIGHT WARN:", w)
+
     work = os.path.join(INTAKE, name); os.makedirs(work, exist_ok=True)
     out = os.path.abspath(a.out) if a.out else os.path.join(work, f"{name}_branded.mp4")
 
     # source audio -> padded wav (or silence)
     nar = os.path.join(work, "src_audio.wav")
-    pad = a.endcard_duration + 0.6
+    pad = a.endcard_duration + 0.2   # nar = video + 0.2 — inside duration_tolerance
     if has_audio:
         r = run(["ffmpeg","-y","-v","error","-i",src,"-af",f"apad=pad_dur={pad}","-ar","48000",nar])
     else:
@@ -137,6 +158,18 @@ def main():
     print(f"runtime: {vd:.2f}s (source {dur:.2f} + endcard {a.endcard_duration}s)")
     print(f"audio:   {mean[0].strip() if mean else '?'} | {mx[0].strip() if mx else '?'}")
     print(f"sting @  {sting_at:.2f}s | QC frame: {qc}\\qc_{name}_endcard.png")
+
+    # optional paid Model API QC — runs only when explicitly asked AND key present
+    if a.meta_qc:
+        key = os.environ.get("MODEL_API_KEY") or os.environ.get("META_MODEL_API_KEY")
+        if not key:
+            print("meta-qc: SKIPPED — MODEL_API_KEY not set (local pipeline unaffected)")
+        else:
+            r = run([sys.executable, os.path.join(HERE, "meta_provider.py"), "qc",
+                     out, "--brief", a.brief or "", "--model", a.meta_qc_model, "--paid",
+                     "--out", os.path.join(work, f"{name}_meta_qc.json")])
+            print(r.stdout.strip()[:600])
+            if r.returncode: print("meta-qc: FAILED —", r.stderr[:300])
 
 if __name__ == "__main__":
     main()
