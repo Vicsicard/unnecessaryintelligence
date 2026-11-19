@@ -1,56 +1,35 @@
-# Episode 4 — StudyBro AI — Assembly Report V1 (First Review Cut)
+# Episode 4 — StudyBro AI — Assembly Report V2 (Review Cut)
 
 **Status:** review candidate, awaiting user approval. No publication.
 **Exports:**
-- `exports/ep4_reel_v1.mp4` — 34.34 s (Social Reel, 0.6 s V4 flash)
-- `exports/ep4_master_v1.mp4` — 35.54 s (Editorial Master, 1.8 s V4 endcard)
+- `exports/ep4_reel_v1.mp4` — 34.97 s (Social Reel, 0.6 s V4 flash)
+- `exports/ep4_master_v1.mp4` — 36.17 s (Editorial Master, 1.8 s V4 endcard)
 - Review: `http://127.0.0.1:8790/ep4/exports/ep4_reel_v1.mp4` / `.../ep4_master_v1.mp4`
 
-## Source footage (all 720x1280 @ 24 fps, audio present, originals untouched)
+## V2 changes (user-requested)
 
-| File | Length | Content | Speech bursts (silence-mapped) |
-|---|---|---|---|
-| `source/s01.mp4` | 10.24 s | Teacher + StudyBro AI deck + headphone students | 0–3.07 / 3.51–7.35 / 7.91–10.24 |
-| `source/s02.mp4` | 10.24 s | Purple podcast studio, "StudyBro AI Podcast Studio" + "U.S. History Podcast" baked in | 0–3.95 / 4.45–6.49 / 6.71–10.24 |
-| `source/s03.mp4` | 10.24 s | Classroom payoff, teacher stunned closeup | 0–2.05 / 3.16–3.42 / 3.94–4.50 / 5.12–5.90 / 6.93–7.65 / 8.29–9.83 |
+1. **Scene 3 replaced** with the stronger payoff clip (`source/s03.mp4` = `image_20261119_154827.mp4`; old clip preserved as `s03_replaced_v1.mp4`). Whiteboard shows the question, teacher despair escalates beside the smug student.
+2. **s04 logo video added** (`image_20261119_155223.mp4`, 5.25 s) — teacher melting down under the neon "StudyBro AI — Less Studying. More Confidence." sign. Replaces the static product card.
+3. **Tagline VO = HeyGen Wade** (`create_speech`, voice `a3a4...332fa`, 4.01 s) overlaid at 29.7 s on the logo reveal. SAPI retired — no more robot voice.
 
-Dialogue timing was measured by silence detection, not transcription — wording below is inferred from the approved script.
-
-## Edit timeline (reel = master story track)
+## Timeline (reel = master story track)
 
 | Time | Source | Content |
 |---|---|---|
-| 0.00–9.41 | s01 `[0–3.07]+[3.35–7.35]+[7.7–10.24]` tightened | Teacher intro, all three lines kept; internal dead air trimmed 0.63 s. `graphics/hook.png` "AI JUST REPLACED YOUR TEXTBOOKS?!" overlays 0.25–2.65. |
-| 9.41–19.65 | s02 `[0–10.24]` full | Podcast: Washington invented America → funding? → Series A / France → Brooooo. plug_blip transition SFX at 9.35. |
-| 19.65–25.57 | s03a `[0–5.9]` | "Who funded the American Revolution?" → 1.1 s dead air → "France." → "Series A." (+ series_a_ding at 23.65) |
-| 25.57–29.55 | s03b `[5.9–9.9]` | Teacher stunned hold — punch-in zoom 1.0→1.11. drop_sweep at 25.2. |
-| 29.55–33.95 | `graphics/product_card.png` | StudyBro AI. LESS STUDYING. MORE CONFIDENCE. (SAPI temp VO) |
-| 33.95–end | V4 endcard | Reel: 0.6 s flash / Master: 1.8 s standard + UI sting at 33.95 |
-
-## Captions
-
-`captions/ep4.ass` — Inter 58, white + dark outline, purple (&HFF5CB4) on REPLACED / GEORGE WASHINGTON / SERIES A / FRANCE. Line-level timing from silence map, not word-level karaoke.
+| 0.00–9.41 | s01 tightened `[0–3.07]+[3.35–7.35]+[7.7–10.24]` | Hook + "AI JUST REPLACED YOUR TEXTBOOKS?!" overlay |
+| 9.41–19.65 | s02 `[0–10.24]` | Podcast: Washington invented America → Series A / France → Brooooo. plug_blip @9.35 |
+| 19.65–26.37 | s03a `[0–6.72]` | Teacher question → "France." → "Series A." (+ ding @22.7) |
+| 26.37–29.57 | s03b `[6.7–9.9]` | Teacher despair punch-in 1.0→1.11, drop_sweep @26.5 |
+| 29.57–34.82 | s04 `[0–5.25]` | StudyBro neon logo video, Wade tagline VO @29.7 |
+| 34.82–end | V4 endcard | Reel 0.6 s flash / Master 1.8 s standard + sting @34.85 |
 
 ## Audio
 
-narration = s01+s02+s03a+s03b source audio + SAPI tagline VO (rate 1). Bed = shop_bed (128 bpm electronic) -12 dB, sidechain-ducked. SFX: open_hit @0, plug_blip @9.35, series_a_ding @23.65, drop_sweep @25.2, ui_sting @33.95. Peaks at limiter (~0 dBFS).
+narration = source audio s01+s02+s03a+s03b+s04 (s04 ducked to 0.35 so Wade dominates) + bed -12 dB. Wade tagline as overlay. Peaks at limiter.
 
-## Detected issues / flagged for review
+## Flags for review
 
-1. **Runtime 34.3 s > 22–28 s target.** All approved dialogue + baked comedy pauses kept per "humor > runtime". Trim options below.
-2. **s03 contains ~3.3 s of speech beyond the scripted Q&A** (bursts at src 5.12–5.90, 6.93–7.65, 8.29–9.83) — likely teacher stammer/reaction. Kept; verify it's intentional, not babble.
-3. **Tagline VO is SAPI temp** (clear, robotic). HeyGen Wade (the ep3 voice) is one call away — held per "no paid calls" instruction.
-4. Captions are line-level, not karaoke word-sync — word timing needs a transcript pass or manual timing.
-5. No word-level verification of "Series A" ding timing (placed at measured "Series A." burst 23.59–24.15).
-
-## Does the joke land?
-
-Yes — structure reads cleanly: hook (0–9.4) → absurd podcast (9.4–19.6) → payoff with visible stunned teacher + baked dead-air (19.6–29.5) → tagline card. The teacher's reaction face is unobstructed during the punch-in.
-
-## V2 options (awaiting review)
-
-- **Hit ~30 s:** drop s01 line 3 ("learn without reading?" −2.3 s) and trim s03 tail to 8.4 (−1.5 s).
-- **Hit ~28 s:** also shorten product card to 3.2 s (requires faster VO or Wade).
-- HeyGen Wade tagline VO swap.
-- Word-level karaoke captions (needs transcript timing).
-- Optional paid Meta QC pass (~cents) for dialogue-vs-brief check.
+1. Runtime 35.0 s — over 22–28 target; all approved dialogue + comedy pauses kept. Trim options in V1 notes still apply.
+2. New s03 has unscripted speech after "Series A." (~3.9–6.7 src) — kept; verify it's intentional reaction dialogue.
+3. s04 audio kept at 35% under Wade VO — if it's silent or clashes, say so and I'll mute it.
+4. Captions line-level on scripted lines only; s03's extra speech uncaptioned.

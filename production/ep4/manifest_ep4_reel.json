@@ -41,22 +41,22 @@
     {
       "id": "s03a",
       "type": "composite",
-      "duration": 5.92,
+      "duration": 6.72,
       "base": "preview/tmp/s03a.mp4",
       "layers": []
     },
     {
       "id": "s03b",
       "type": "composite",
-      "duration": 4.0,
+      "duration": 3.2,
       "base": "preview/tmp/s03b.mp4",
       "layers": []
     },
     {
       "id": "s04",
       "type": "composite",
-      "duration": 4.4,
-      "base": "graphics/product_card.png",
+      "duration": 5.25,
+      "base": "source/s04.mp4",
       "layers": []
     },
     {
