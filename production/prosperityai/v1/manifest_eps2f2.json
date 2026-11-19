@@ -1,0 +1,34 @@
+{
+  "slug": "prosperityai-eps2f2",
+  "version": "eps2f2",
+  "width": 1080,
+  "height": 1920,
+  "fps": 25,
+  "xfade": 0.4,
+  "duration_tolerance": 0.5,
+  "ui_endcard": true,
+  "segments_dir": "segments",
+  "concat_list": "concat_list_eps2f2.txt",
+  "concat_out": "preview/prosperityai_eps2f2.mp4",
+  "narration_wav": "audio/narration_e2.wav",
+  "fonts_dir": "brand/fonts",
+  "export": "exports/prosperityai_eps2_final_candidate.mp4",
+  "shots": [
+    {
+      "id": "s00",
+      "type": "composite",
+      "duration": 10.24,
+      "base": "eps2e/source.mp4",
+      "layers": []
+    },
+    {
+      "id": "s06",
+      "type": "endcard",
+      "source": "graphics/endcard_big.png",
+      "duration": 1.8,
+      "variant": "standard"
+    }
+  ],
+  "_measured": "12.04s \u2014 eps2e (10.24) -> standard 1.8s UI endcard + sting only. \"Can't afford it\" founder screen and analysis card removed per owner.",
+  "captions_ass": "captions/eps2f2.ass"
+}
