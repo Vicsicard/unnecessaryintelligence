@@ -1,0 +1,37 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><style>
+  @font-face{font-family:Inter;src:url("../fonts/Inter.ttf")}
+  @font-face{font-family:Inter;src:url("../fonts/Inter-SemiBold.ttf");font-weight:600}
+  *{margin:0;box-sizing:border-box}
+  /* Transparent feature row (936×300). Params: idx, name, sub, status, tone (ok|warn|odd) */
+  body{width:936px;height:300px;background:transparent;font-family:Inter;
+       display:flex;align-items:center}
+  .row{width:100%;display:flex;align-items:center;gap:26px;padding:36px 40px;
+       background:#0E2240EE;border:1px solid #ffffff14;border-radius:22px;
+       box-shadow:0 18px 60px #00000070}
+  .idx{font-size:26px;color:#5C6B84;font-weight:600;min-width:52px}
+  .txt{flex:1}
+  .name{font-size:52px;font-weight:600;color:#F5F7FA;letter-spacing:-1px}
+  .sub{font-size:28px;color:#8A94A8;margin-top:6px}
+  .tag{font-size:24px;letter-spacing:4px;border-radius:999px;padding:10px 22px;
+       white-space:nowrap;font-weight:600}
+  .ok{color:#3DD68C;border:1px solid #3DD68C55;background:#3DD68C10}
+  .warn{color:#E5484D;border:1px solid #E5484D55;background:#E5484D10}
+  .odd{color:#FF8C1A;border:1px solid #FF8C1A55;background:#FF8C1A10}
+</style></head>
+<body>
+  <div class="row">
+    <div class="idx" id="idx">01</div>
+    <div class="txt"><div class="name" id="name">Feature</div><div class="sub" id="sub"></div></div>
+    <div class="tag ok" id="tag">VERIFIED</div>
+  </div>
+  <script>
+    const q = new URLSearchParams(location.search);
+    for (const id of ["idx","name","sub"]) {
+      const v = q.get(id); if (v !== null) document.getElementById(id).innerHTML = v;
+    }
+    const tag = document.getElementById("tag");
+    tag.textContent = q.get("status") || "VERIFIED";
+    tag.className = "tag " + (q.get("tone") || "ok");
+  </script>
+</body></html>

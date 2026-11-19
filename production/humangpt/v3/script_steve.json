@@ -1,0 +1,10 @@
+{
+  "slug": "humangpt-v3-steve",
+  "title": "HumanGPT v3 — Steve's closing line",
+  "voice_id": "80f988d41e454baa8d20e0e0ddfe050d",
+  "beats": {
+    "n06": "Me... Steve. HumanGPT."
+  },
+  "beat_order": ["n06"],
+  "note": "Keanu (steve_voice in ui-presenter-lock.json). Run BEFORE script.json so n06.wav exists and the Garret pass skips it. 'Me...' pause + beat before HumanGPT preserved for deadpan timing."
+}

@@ -135,6 +135,39 @@ class Builder:
             check=True,capture_output=True)
         return out
 
+    def composite(self, base, layers, d, name):
+        """bg plate + individually-animated transparent-PNG layer overlays.
+
+        layer: {"png","x","y","start","anim","travel","dur"}
+          anim: slideup (default) | slidedown | slideleft | slideright | fadein
+          quadratic ease-out; each layer also alpha-fades in over `dur`.
+        This is per-element motion — unlike `graphic` states which swap
+        whole frames, each layer moves on its own track over the base."""
+        inputs = ["-loop","1","-t",f"{d:.3f}","-i",base]
+        fc = ["[0:v]format=yuv420p[bg]"]
+        prev = "bg"
+        for i, lay in enumerate(layers, 1):
+            st = float(lay.get("start", 0)); fd = float(lay.get("dur", 0.45))
+            tr = float(lay.get("travel", 80)); anim = lay.get("anim", "slideup")
+            x, y = lay.get("x", 0), lay.get("y", 0)
+            inputs += ["-loop","1","-t",f"{d:.3f}","-i",lay["png"]]
+            fc.append(f"[{i}:v]format=rgba,fade=t=in:st={st}:d={fd}:alpha=1[l{i}]")
+            p = f"min(max((t-{st})/{fd},0),1)"
+            e = f"(1-{p})*(1-{p})"  # quadratic ease-out residual offset
+            if   anim == "slideup":    xe, ye = str(x), f"{y}+{tr}*{e}"
+            elif anim == "slidedown":  xe, ye = str(x), f"{y}-{tr}*{e}"
+            elif anim == "slideleft":  xe, ye = f"{x}+{tr}*{e}", str(y)
+            elif anim == "slideright": xe, ye = f"{x}-{tr}*{e}", str(y)
+            else:                      xe, ye = str(x), str(y)
+            nxt = "v" if i == len(layers) else f"c{i}"
+            fc.append(f"[{prev}][l{i}]overlay=x='{xe}':y='{ye}':enable='gte(t,{st})'[{nxt}]")
+            prev = nxt
+        out = os.path.join(self.segdir, name + ".mp4")
+        subprocess.run(["ffmpeg","-y",*inputs,"-filter_complex",";".join(fc),
+            "-map",f"[{prev}]","-t",f"{d:.3f}","-c:v","libx264","-pix_fmt","yuv420p","-an",out],
+            check=True,capture_output=True)
+        return out
+
     def presenter_fs(self, mp4, d, name, offset=0.0, crop=None):
         """Full-screen presenter: source scaled-to-fill the whole canvas
         (no frame/margins), last frame held to shot duration, subtle bottom
@@ -233,6 +266,14 @@ class Builder:
                 if times != sorted(times): errs.append(f"{sid}: state times not ascending")
                 if times and times[0] != 0: errs.append(f"{sid}: base state must start at 0")
                 if times and times[-1] >= s["duration"]: errs.append(f"{sid}: last state >= duration")
+            elif t == "composite":
+                self.resolve(s["base"])
+                starts = []
+                for lay in s.get("layers", []):
+                    self.resolve(lay["png"]); starts.append(float(lay.get("start", 0)))
+                if starts != sorted(starts): errs.append(f"{sid}: layer starts not ascending")
+                if starts and starts[-1] >= s["duration"]:
+                    errs.append(f"{sid}: last layer start >= duration")
             elif t == "broll":
                 sp = self.resolve(s["source"])
                 if os.path.splitext(sp)[1].lower() not in (".png",".jpg",".jpeg",".webp"):
@@ -265,6 +306,9 @@ class Builder:
                          s.get("crop"))
             elif t == "graphic":   src = self.graphic([(self.resolve(png),st) for png,st in s["states"]], d, sid,
                                         s.get("transitions"))
+            elif t == "composite": src = self.composite(self.resolve(s["base"]),
+                                        [{**lay, "png": self.resolve(lay["png"])}
+                                         for lay in s["layers"]], d, sid)
             elif t == "broll":     src = self.broll(self.resolve(s["source"]), d, sid,
                                         s.get("in",0.0), s.get("out"),
                                         s.get("fade_in",0.0), s.get("fade_out",0.0), s.get("mode","cover"),

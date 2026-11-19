@@ -27,6 +27,8 @@ production/**/concat*.txt
 # generated plates are regenerable from templates — keep manifests only
 production/**/graphics/*.png
 !production/**/graphics/.gitkeep
+production/**/layers/*.png
+!production/**/layers/.gitkeep
 
 # validation outputs — regenerable
 validation/out/

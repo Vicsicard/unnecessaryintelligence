@@ -1,0 +1,26 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1080
+PlayResY: 1920
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Inter,63,&H00FFFFFF,&H000B1220,&H800B1220,-1,0,0,0,100,100,0,0,3,15,0,2,60,60,268,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.34,0:00:01.79,Default,,0,0,0,,Companies replaced their employees
+Dialogue: 0,0:00:01.88,0:00:03.67,Default,,0,0,0,,with AI. Then hired
+Dialogue: 0,0:00:03.71,0:00:04.41,Default,,0,0,0,,people to fix it.
+Dialogue: 0,0:00:04.90,0:00:07.54,Default,,0,0,0,,Introducing HumanGPT. The first
+Dialogue: 0,0:00:07.67,0:00:09.16,Default,,0,0,0,,AI replacement that's actually
+Dialogue: 0,0:00:09.42,0:00:09.95,Default,,0,0,0,,a person.
+Dialogue: 0,0:00:10.76,0:00:12.93,Default,,0,0,0,,Understands sarcasm. Knows when
+Dialogue: 0,0:00:12.97,0:00:14.51,Default,,0,0,0,,you're lying. Can attend
+Dialogue: 0,0:00:14.60,0:00:16.02,Default,,0,0,0,,meetings without summarizing them.
+Dialogue: 0,0:00:16.80,0:00:18.63,Default,,0,0,0,,No subscription required. Just
+Dialogue: 0,0:00:18.72,0:00:20.32,Default,,0,0,0,,a salary, health insurance,
+Dialogue: 0,0:00:20.47,0:00:22.06,Default,,0,0,0,,and occasional emotional support.
+Dialogue: 0,0:00:22.84,0:00:23.86,Default,,0,0,0,,The next generation of
+Dialogue: 0,0:00:23.91,0:00:25.68,Default,,0,0,0,,artificial intelligence is...
+Dialogue: 0,0:00:26.40,0:00:29.16,Default,,0,0,0,,Me... Steve. HumanGPT.

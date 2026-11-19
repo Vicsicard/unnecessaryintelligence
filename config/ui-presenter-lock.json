@@ -1,10 +1,15 @@
 {
   "brand": "ui",
-  "status": "CONFIGURED — HumanGPT v1 identity locked",
+  "status": "CONFIGURED — HumanGPT v3 identity locked",
   "voice": {
     "voice_id": "f49763c1a284420b8f25f16472d8738e",
     "name": "Garret — Bold & Persuasive (en-US)",
     "note": "Glossy corporate tech-ad deadpan. HeyGen public catalog voice. Do NOT reuse MALB Weston or CHM voices."
+  },
+  "steve_voice": {
+    "voice_id": "80f988d41e454baa8d20e0e0ddfe050d",
+    "name": "Keanu — Crisp & Approachable (en-US)",
+    "note": "Steve's own voice for on-camera lines (v3+). Plain, sincere, everyday — deliberately distinct from Garret's ad-read. HeyGen public catalog voice."
   },
   "presenter": {
     "group_id": "469ba809c9f6441ba74a580058d41c4b",

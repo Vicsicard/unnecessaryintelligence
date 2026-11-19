@@ -1,0 +1,318 @@
+{
+ "n01": {
+  "start": 0.0,
+  "dur": 4.606,
+  "words": [
+   {
+    "w": "Companies",
+    "start": 0.341,
+    "end": 0.683
+   },
+   {
+    "w": "replaced",
+    "start": 0.811,
+    "end": 1.109
+   },
+   {
+    "w": "their",
+    "start": 1.195,
+    "end": 1.323
+   },
+   {
+    "w": "employees",
+    "start": 1.365,
+    "end": 1.792
+   },
+   {
+    "w": "with",
+    "start": 1.877,
+    "end": 1.963
+   },
+   {
+    "w": "AI.",
+    "start": 2.005,
+    "end": 2.688
+   },
+   {
+    "w": "Then",
+    "start": 3.029,
+    "end": 3.2
+   },
+   {
+    "w": "hired",
+    "start": 3.371,
+    "end": 3.669
+   },
+   {
+    "w": "people",
+    "start": 3.712,
+    "end": 3.84
+   },
+   {
+    "w": "to",
+    "start": 3.968,
+    "end": 4.053
+   },
+   {
+    "w": "fix",
+    "start": 4.096,
+    "end": 4.181
+   },
+   {
+    "w": "it.",
+    "start": 4.309,
+    "end": 4.406
+   }
+  ]
+ },
+ "n02": {
+  "start": 4.6,
+  "dur": 5.547,
+  "words": [
+   {
+    "w": "Introducing",
+    "start": 4.899,
+    "end": 5.368
+   },
+   {
+    "w": "HumanGPT.",
+    "start": 5.624,
+    "end": 6.904
+   },
+   {
+    "w": "The",
+    "start": 7.16,
+    "end": 7.288
+   },
+   {
+    "w": "first",
+    "start": 7.331,
+    "end": 7.544
+   },
+   {
+    "w": "AI",
+    "start": 7.672,
+    "end": 7.971
+   },
+   {
+    "w": "replacement",
+    "start": 8.013,
+    "end": 8.525
+   },
+   {
+    "w": "that's",
+    "start": 8.653,
+    "end": 8.824
+   },
+   {
+    "w": "actually",
+    "start": 8.867,
+    "end": 9.165
+   },
+   {
+    "w": "a",
+    "start": 9.421,
+    "end": 9.464
+   },
+   {
+    "w": "person.",
+    "start": 9.507,
+    "end": 9.947
+   }
+  ]
+ },
+ "n03": {
+  "start": 10.5,
+  "dur": 5.721,
+  "words": [
+   {
+    "w": "Understands",
+    "start": 10.756,
+    "end": 11.311
+   },
+   {
+    "w": "sarcasm.",
+    "start": 11.481,
+    "end": 12.271
+   },
+   {
+    "w": "Knows",
+    "start": 12.463,
+    "end": 12.719
+   },
+   {
+    "w": "when",
+    "start": 12.847,
+    "end": 12.932
+   },
+   {
+    "w": "you're",
+    "start": 12.975,
+    "end": 13.103
+   },
+   {
+    "w": "lying.",
+    "start": 13.145,
+    "end": 13.7
+   },
+   {
+    "w": "Can",
+    "start": 14.084,
+    "end": 14.212
+   },
+   {
+    "w": "attend",
+    "start": 14.255,
+    "end": 14.511
+   },
+   {
+    "w": "meetings",
+    "start": 14.596,
+    "end": 14.895
+   },
+   {
+    "w": "without",
+    "start": 15.023,
+    "end": 15.108
+   },
+   {
+    "w": "summarizing",
+    "start": 15.236,
+    "end": 15.705
+   },
+   {
+    "w": "them.",
+    "start": 15.833,
+    "end": 16.021
+   }
+  ]
+ },
+ "n04": {
+  "start": 16.5,
+  "dur": 5.756,
+  "words": [
+   {
+    "w": "No",
+    "start": 16.799,
+    "end": 17.055
+   },
+   {
+    "w": "subscription",
+    "start": 17.097,
+    "end": 17.481
+   },
+   {
+    "w": "required.",
+    "start": 17.652,
+    "end": 18.228
+   },
+   {
+    "w": "Just",
+    "start": 18.505,
+    "end": 18.633
+   },
+   {
+    "w": "a",
+    "start": 18.719,
+    "end": 18.761
+   },
+   {
+    "w": "salary,",
+    "start": 18.804,
+    "end": 19.337
+   },
+   {
+    "w": "health",
+    "start": 19.529,
+    "end": 19.7
+   },
+   {
+    "w": "insurance,",
+    "start": 19.743,
+    "end": 20.319
+   },
+   {
+    "w": "and",
+    "start": 20.468,
+    "end": 20.639
+   },
+   {
+    "w": "occasional",
+    "start": 20.724,
+    "end": 21.065
+   },
+   {
+    "w": "emotional",
+    "start": 21.193,
+    "end": 21.492
+   },
+   {
+    "w": "support.",
+    "start": 21.62,
+    "end": 22.056
+   }
+  ]
+ },
+ "n05": {
+  "start": 22.5,
+  "dur": 3.376,
+  "words": [
+   {
+    "w": "The",
+    "start": 22.841,
+    "end": 22.969
+   },
+   {
+    "w": "next",
+    "start": 23.012,
+    "end": 23.14
+   },
+   {
+    "w": "generation",
+    "start": 23.268,
+    "end": 23.652
+   },
+   {
+    "w": "of",
+    "start": 23.78,
+    "end": 23.865
+   },
+   {
+    "w": "artificial",
+    "start": 23.908,
+    "end": 24.249
+   },
+   {
+    "w": "intelligence",
+    "start": 24.42,
+    "end": 24.889
+   },
+   {
+    "w": "is...",
+    "start": 25.103,
+    "end": 25.676
+   }
+  ]
+ },
+ "n06": {
+  "start": 26.1,
+  "dur": 3.058,
+  "words": [
+   {
+    "w": "Me...",
+    "start": 26.399,
+    "end": 27.039
+   },
+   {
+    "w": "Steve.",
+    "start": 27.209,
+    "end": 27.743
+   },
+   {
+    "w": "HumanGPT.",
+    "start": 27.977,
+    "end": 29.158
+   }
+  ]
+ }
+}

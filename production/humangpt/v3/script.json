@@ -1,0 +1,23 @@
+{
+  "slug": "humangpt-v3",
+  "title": "HumanGPT v3 — The first AI replacement that's actually a person",
+  "voice_id": "f49763c1a284420b8f25f16472d8738e",
+  "beats": {
+    "n01": "Companies replaced their employees with AI. Then hired people to fix it.",
+    "n02": "Introducing HumanGPT. The first AI replacement that's actually a person.",
+    "n03": "Understands sarcasm. Knows when you're lying. Can attend meetings without summarizing them.",
+    "n04": "No subscription required. Just a salary, health insurance, and occasional emotional support.",
+    "n05": "The next generation of artificial intelligence is...",
+    "n06": "Me... Steve. HumanGPT."
+  },
+  "beat_order": ["n01", "n02", "n03", "n04", "n05", "n06"],
+  "transcript": {
+    "n01": "Companies replaced their employees with AI. Then hired people to fix it.",
+    "n02": "Introducing HumanGPT. The first AI replacement that's actually a person.",
+    "n03": "Understands sarcasm. Knows when you're lying. Can attend meetings without summarizing them.",
+    "n04": "No subscription required. Just a salary, health insurance, and occasional emotional support.",
+    "n05": "The next generation of artificial intelligence is...",
+    "n06": "Me... Steve. HumanGPT."
+  },
+  "note": "n06 is Steve's line — rendered with steve_voice (Keanu) via script_steve.json BEFORE this file runs; gen_tts then skips the existing n06.wav."
+}

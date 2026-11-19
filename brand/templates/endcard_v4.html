@@ -1,0 +1,29 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><style>
+  @font-face{font-family:Inter;src:url("../fonts/Inter.ttf")}
+  *{margin:0;box-sizing:border-box}
+  /* UI V4 permanent brand end card — navy field, logo lockup centered.
+     Logo source stays a separate asset; animation is applied by the
+     renderer (broll ken-burns), keeping logo/bg/motion independent.
+     Params: logo (img src), scale (logo width px) */
+  body{width:1080px;height:1920px;
+       background:radial-gradient(ellipse 900px 1300px at 50% 44%,#0A2447 0%,#04101F 62%,#020A16 100%);
+       font-family:Inter;position:relative;overflow:hidden;display:flex;
+       align-items:center;justify-content:center}
+  .sheen{position:absolute;top:-300px;right:-200px;width:800px;height:800px;
+       border-radius:50%;background:radial-gradient(circle,#FF8C1A10 0%,transparent 60%)}
+  .logo{width:880px;display:block;position:relative}
+  .edge{position:absolute;left:0;right:0;bottom:56px;text-align:center;
+       font-size:22px;letter-spacing:6px;color:#5C6B84}
+</style></head>
+<body>
+  <div class="sheen"></div>
+  <img class="logo" id="logo" src="../assets/ui-logo-v4.png">
+  <div class="edge" id="edge">UNNECESSARY INTELLIGENCE &trade;</div>
+  <script>
+    const q = new URLSearchParams(location.search);
+    const src = q.get("logo"); if (src) document.getElementById("logo").src = src;
+    const w = q.get("scale"); if (w) document.getElementById("logo").style.width = w + "px";
+    const e = q.get("edge"); if (e) document.getElementById("edge").innerHTML = e;
+  </script>
+</body></html>

@@ -1,0 +1,24 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><style>
+  @font-face{font-family:Inter;src:url("../fonts/Inter.ttf")}
+  @font-face{font-family:Inter;src:url("../fonts/Inter-SemiBold.ttf");font-weight:600}
+  *{margin:0;box-sizing:border-box}
+  /* Transparent presenter product card (760×1060). Params: img, label */
+  body{width:760px;height:1060px;background:transparent;font-family:Inter;
+       display:flex;align-items:center;justify-content:center}
+  .card{width:700px;height:960px;border-radius:30px;overflow:hidden;position:relative;
+       border:2px solid #FF8C1A55;background:#0E2240;
+       box-shadow:0 0 90px #FF8C1A1f,0 30px 90px #00000090}
+  .card img{width:100%;height:100%;object-fit:cover;display:block}
+  .label{position:absolute;left:0;right:0;bottom:0;padding:26px 34px;
+       background:linear-gradient(transparent,#030E1F 65%);
+       font-size:30px;letter-spacing:10px;color:#FF8C1A;font-weight:600;text-transform:uppercase}
+</style></head>
+<body>
+  <div class="card"><img id="img" src=""><div class="label" id="label">STEVE&trade; UNIT 01</div></div>
+  <script>
+    const q = new URLSearchParams(location.search);
+    const img = q.get("img"); if (img) document.getElementById("img").src = img;
+    const l = q.get("label"); if (l) document.getElementById("label").innerHTML = l;
+  </script>
+</body></html>

@@ -1,0 +1,56 @@
+{
+  "slug": "humangpt-v3",
+  "version": "v3",
+  "width": 1080,
+  "height": 1920,
+  "fps": 25,
+  "xfade": 0.4,
+  "duration_tolerance": 0.5,
+  "segments_dir": "segments",
+  "concat_list": "concat_list.txt",
+  "concat_out": "preview/humangpt_v3.mp4",
+  "narration_wav": "audio/narration.wav",
+  "captions_ass": "captions/narration.ass",
+  "fonts_dir": "brand/fonts",
+  "export": "exports/humangpt_v3.mp4",
+  "shots": [
+    { "id": "s00", "type": "composite", "duration": 4.6,
+      "base": "graphics/breaking.png",
+      "layers": [
+        { "png": "layers/h1.png", "x": 0, "y": 640, "start": 0.40, "anim": "slideup", "travel": 90, "dur": 0.40 },
+        { "png": "layers/h2.png", "x": 0, "y": 940, "start": 2.05, "anim": "slideup", "travel": 90, "dur": 0.40 },
+        { "png": "layers/h3.png", "x": 0, "y": 1240, "start": 3.05, "anim": "slideup", "travel": 110, "dur": 0.45 }
+      ] },
+    { "id": "s01", "type": "composite", "duration": 5.9,
+      "base": "graphics/reveal.png",
+      "layers": [
+        { "png": "layers/steve.png", "x": 160, "y": 640, "start": 4.30, "anim": "slideup", "travel": 140, "dur": 0.60 }
+      ] },
+    { "id": "s02", "type": "composite", "duration": 6.0,
+      "base": "graphics/dash.png",
+      "layers": [
+        { "png": "layers/f1.png", "x": 72, "y": 560, "start": 1.00, "anim": "slideup", "travel": 80, "dur": 0.45 },
+        { "png": "layers/f2.png", "x": 72, "y": 900, "start": 1.95, "anim": "slideup", "travel": 80, "dur": 0.45 },
+        { "png": "layers/f3.png", "x": 72, "y": 1240, "start": 3.60, "anim": "slideup", "travel": 80, "dur": 0.45 }
+      ] },
+    { "id": "s03", "type": "composite", "duration": 6.0,
+      "base": "graphics/price.png",
+      "layers": [
+        { "png": "layers/tag.png",  "x": 72,  "y": 520,  "start": 2.30, "anim": "slideup", "travel": 90, "dur": 0.50 },
+        { "png": "layers/p1.png",   "x": 130, "y": 1000, "start": 3.25, "anim": "slideup", "travel": 60, "dur": 0.40 },
+        { "png": "layers/p2.png",   "x": 130, "y": 1130, "start": 4.10, "anim": "slideup", "travel": 60, "dur": 0.40 },
+        { "png": "layers/p3.png",   "x": 130, "y": 1260, "start": 4.70, "anim": "slideup", "travel": 60, "dur": 0.40 },
+        { "png": "layers/disc.png", "x": 90,  "y": 1440, "start": 4.75, "anim": "fadein", "dur": 0.60 }
+      ] },
+    { "id": "s04", "type": "composite", "duration": 3.6,
+      "base": "graphics/tease.png",
+      "layers": [
+        { "png": "layers/steve.png", "x": 160, "y": 660, "start": 0.40, "anim": "fadein", "dur": 0.60 }
+      ] },
+    { "id": "s05", "type": "presenter", "fullscreen": true,
+      "source": "presenter/vp3.mp4", "crop": "1080:800:0:620",
+      "duration": 3.2, "offset": 0.0 },
+    { "id": "s06", "type": "broll", "source": "graphics/endcard.png", "duration": 2.5 }
+  ],
+  "_measured": "sum 31.8 = pacing.total. n01@0.0(4.61) n02@4.6(5.55) n03@10.5(5.72) n04@16.5(5.76) n05@22.5(3.38) n06@26.1(3.06). Layer triggers (shot-relative): s00 headlines@'replaced'(0.40)/post-'AI.'(2.05)/'hired'(3.05); s01 steve card@'actually a person'(4.30); s02 rows@'sarcasm.'(1.00)/'Knows'(1.95)/'attend'(3.60); s03 tag@'salary'(2.30)/p1@'insurance'(3.25)/p2(4.10)/p3(4.70)/disc@'emotional'(4.75); s04 steve card fadein@0.40; s05 Steve speaks n06 (Keanu voice); s06 V4 endcard ken-burns."
+}

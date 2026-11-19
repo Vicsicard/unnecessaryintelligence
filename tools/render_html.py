@@ -38,7 +38,7 @@ def find_browser():
     return None
 
 
-def render(browser, src, out, w, h, params=None):
+def render(browser, src, out, w, h, params=None, transparent=False):
     src = os.path.abspath(src)
     url = "file:///" + src.replace("\\", "/")
     if params:
@@ -46,7 +46,10 @@ def render(browser, src, out, w, h, params=None):
     os.makedirs(os.path.dirname(os.path.abspath(out)) or ".", exist_ok=True)
     cmd = [browser, "--headless=new", "--disable-gpu", "--hide-scrollbars",
            f"--screenshot={os.path.abspath(out)}", f"--window-size={w},{h}",
-           "--virtual-time-budget=2000", url]
+           "--virtual-time-budget=2000"]
+    if transparent:
+        cmd.append("--default-background-color=00000000")
+    cmd.append(url)
     r = subprocess.run(cmd, capture_output=True, text=True, timeout=60)
     if not os.path.exists(out):
         raise SystemExit(f"FATAL: screenshot failed {src}\n{r.stderr[-400:]}")
@@ -62,7 +65,8 @@ def main():
         spec = json.load(open(args[args.index("--jobs") + 1], encoding="utf-8"))
         for j in spec:
             print(render(browser, j["in"], j["out"],
-                         j.get("w", 1080), j.get("h", 1920), j.get("params")))
+                         j.get("w", 1080), j.get("h", 1920), j.get("params"),
+                         j.get("transparent", False)))
         return
     if len(args) < 2:
         print(__doc__); sys.exit(1)
