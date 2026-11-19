@@ -22,11 +22,19 @@
   "characters": {
     "founder": {
       "group_id": "ea6b5b730b12471f9d21f583aa024713",
-      "group_name": "Sebastian (ProsperityAI founder — UI character)",
+      "group_name": "Sebastian (ProsperityAI founder — UI character, v1/v1.1)",
       "approved_look_ids": { "office11": "f00a2f4b726e4808866d4740ede6e1e0" },
       "approved_look_names": { "office11": "Sebastian Office 11" },
       "retired_look_ids": {},
-      "note": "Fictional tech-billionaire founder for campaign 002 ProsperityAI (~50s exec, blazer). Public photo avatar, status completed. Recurring character — reuse for all ProsperityAI commercials."
+      "note": "Fictional tech-billionaire founder for campaign 002 ProsperityAI v1/v1.1. ARCHIVED — superseded by founder_ricky in v1.2 (owner-selected keynote-stage look)."
+    },
+    "founder_ricky": {
+      "group_id": "378cae579aef4c1189398b008dec0cd1",
+      "group_name": "Ricky (ProsperityAI founder — UI character, v1.2+)",
+      "approved_look_ids": { "stage_led": "94e7ae7f1f6041efa947b104c909bf83" },
+      "approved_look_names": { "stage_led": "Ricky stage — gray blazer/turtleneck, LED wall" },
+      "retired_look_ids": {},
+      "note": "Fictional tech-billionaire founder for campaign 002 ProsperityAI v1.2+. Public photo avatar, portrait-native 1080x1920 (no letterbox), real keynote-stage environments baked in. Owner-selected 2025-12. Group has 20 looks incl. auditorium (e7dd61a7), LED low-angle (b782012b), curtain (ec08a8bb), stool (d99e8045, 8445ed1b) — all engines avatar_iv/avatar_v/avatar_iii/heygen-avatar-6/heygen-avatar-6-turbo."
     }
   },
   "founder_voice": {

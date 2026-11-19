@@ -1,0 +1,5 @@
+{"look_id": "94e7ae7f1f6041efa947b104c909bf83", "aspect_ratio": "9:16", "resolution": "1080p",
+ "avatar_engine": "heygen-avatar-6-turbo",
+ "motion_prompt": "Confident fictional billionaire technology founder delivering a historic keynote announcement on a massive stage. Controlled open-hand gestures, natural eye contact, subtle confident facial expression, measured body movement, sincere enthusiasm, professional presentation posture. No exaggerated comedy, distracting gestures, or unnatural movements.",
+ "jobs": [["r2_n01", "audio/n01.wav"], ["r2_n04", "audio/n04.wav"], ["r2_n05", "audio/n05.wav"]],
+ "_note": "v1.2 — founder re-render on Ricky LED-wall stage look 94e7ae7f (owner-selected). A6T, portrait-native. Est ~$0.45-0.49 for ~9.75s. Output presenter_ricky/."}

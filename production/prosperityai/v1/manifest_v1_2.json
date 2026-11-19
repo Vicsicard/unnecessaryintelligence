@@ -1,0 +1,240 @@
+{
+  "slug": "prosperityai-v1_2",
+  "version": "v1.2",
+  "width": 1080,
+  "height": 1920,
+  "fps": 25,
+  "xfade": 0.4,
+  "duration_tolerance": 0.5,
+  "ui_endcard": true,
+  "segments_dir": "segments",
+  "concat_list": "concat_list_v1_2.txt",
+  "concat_out": "preview/prosperityai_v1_2.mp4",
+  "narration_wav": "audio/narration.wav",
+  "captions_ass": "captions/narration.ass",
+  "fonts_dir": "brand/fonts",
+  "export": "exports/prosperityai_v1_2.mp4",
+  "shots": [
+    {
+      "id": "s00",
+      "type": "composite",
+      "duration": 4.2,
+      "base": "presenter_ricky/r2_n01.mp4",
+      "layers": [
+        {
+          "png": "layers/band.png",
+          "x": 0,
+          "y": 1240,
+          "start": 0.9,
+          "anim": "fadein",
+          "dur": 0.35
+        },
+        {
+          "png": "layers/h1.png",
+          "x": 0,
+          "y": 1260,
+          "start": 0.95,
+          "anim": "slidedown",
+          "travel": 320,
+          "dur": 0.5
+        }
+      ]
+    },
+    {
+      "id": "s01",
+      "type": "composite",
+      "duration": 6.0,
+      "base": "graphics/reveal_blank.png",
+      "layers": [
+        {
+          "png": "layers/name.png",
+          "x": 0,
+          "y": 560,
+          "start": 0.3,
+          "anim": "slideup",
+          "travel": 90,
+          "dur": 0.5
+        },
+        {
+          "png": "layers/tagline.png",
+          "x": 0,
+          "y": 770,
+          "start": 1.6,
+          "anim": "slideup",
+          "travel": 70,
+          "dur": 0.45
+        },
+        {
+          "png": "layers/tag199.png",
+          "x": 72,
+          "y": 950,
+          "start": 3.0,
+          "anim": "slideup",
+          "travel": 110,
+          "dur": 0.55
+        }
+      ]
+    },
+    {
+      "id": "s02",
+      "type": "composite",
+      "duration": 6.4,
+      "base": "graphics/dash.png",
+      "layers": [
+        {
+          "png": "layers/inc.png",
+          "x": 72,
+          "y": 460,
+          "start": 1.4,
+          "anim": "slideup",
+          "travel": 80,
+          "dur": 0.45
+        },
+        {
+          "png": "layers/scanline.png",
+          "x": 72,
+          "y": 460,
+          "start": 1.6,
+          "anim": "slidedown",
+          "travel": 480,
+          "dur": 0.9,
+          "out": 2.9
+        },
+        {
+          "png": "layers/scan.png",
+          "x": 72,
+          "y": 710,
+          "start": 3.0,
+          "anim": "slideup",
+          "travel": 80,
+          "dur": 0.45
+        },
+        {
+          "png": "layers/done.png",
+          "x": 72,
+          "y": 960,
+          "start": 4.5,
+          "anim": "slideup",
+          "travel": 80,
+          "dur": 0.45
+        },
+        {
+          "png": "layers/punch.png",
+          "x": 0,
+          "y": 1300,
+          "start": 5.3,
+          "anim": "slideup",
+          "travel": 120,
+          "dur": 0.5
+        }
+      ]
+    },
+    {
+      "id": "s03",
+      "type": "composite",
+      "duration": 3.0,
+      "base": "presenter_ricky/r2_n04.mp4",
+      "layers": [
+        {
+          "png": "layers/kick.png",
+          "x": 0,
+          "y": 1450,
+          "start": 0.4,
+          "anim": "fadein",
+          "dur": 0.45
+        }
+      ]
+    },
+    {
+      "id": "s04",
+      "type": "composite",
+      "duration": 4.4,
+      "base": "graphics/price.png",
+      "layers": [
+        {
+          "png": "layers/tag59.png",
+          "x": 72,
+          "y": 560,
+          "start": 0.4,
+          "anim": "slideup",
+          "travel": 110,
+          "dur": 0.55
+        },
+        {
+          "png": "layers/sub.png",
+          "x": 0,
+          "y": 1060,
+          "start": 1.4,
+          "anim": "fadein",
+          "dur": 0.5
+        },
+        {
+          "png": "layers/disc.png",
+          "x": 90,
+          "y": 1500,
+          "start": 2.6,
+          "anim": "fadein",
+          "dur": 0.6
+        }
+      ]
+    },
+    {
+      "id": "s05a",
+      "type": "composite",
+      "duration": 2.8,
+      "base": "presenter_ricky/r2_n05.mp4",
+      "layers": []
+    },
+    {
+      "id": "s05b",
+      "type": "composite",
+      "duration": 3.0,
+      "base": "graphics/stage_ovation.png",
+      "layers": [
+        {
+          "png": "layers/screen_hold.png",
+          "x": 50,
+          "y": 374,
+          "start": 0.0,
+          "anim": "fadein",
+          "dur": 0.4
+        },
+        {
+          "png": "graphics/confetti_1.png",
+          "x": 0,
+          "y": 0,
+          "start": 0.0,
+          "anim": "slidedown",
+          "travel": 1500,
+          "dur": 2.5
+        },
+        {
+          "png": "graphics/confetti_2.png",
+          "x": 0,
+          "y": 0,
+          "start": 0.4,
+          "anim": "slidedown",
+          "travel": 1500,
+          "dur": 2.5
+        },
+        {
+          "png": "graphics/confetti_3.png",
+          "x": 0,
+          "y": 0,
+          "start": 0.8,
+          "anim": "slidedown",
+          "travel": 1500,
+          "dur": 2.5
+        }
+      ]
+    },
+    {
+      "id": "s06",
+      "type": "endcard",
+      "source": "graphics/endcard.png",
+      "duration": 1.8,
+      "variant": "standard"
+    }
+  ],
+  "_measured": "sum 31.6 \u00e2\u20ac\u201d same pacing as v1.1. Founder = Ricky (look 94e7ae7f, LED-wall stage, A6T) full-frame video bases \u00e2\u20ac\u201d native 9:16, no crop/letterbox. s00 open 4.2 (h1 'POVERTY ENDS TODAY' drop @0.95 over dark band), s01 sequential reveal unchanged, s02 dashboard + scanline + punch unchanged, s03 founder 'FINANCIAL INCLUSION INITIATIVE' kicker 3.0, s04 pricing unchanged, s05a founder closing line 2.8 \u00e2\u2020\u2019 s05b wide ovation plate + confetti 3.0 (the spec's 'wide auditorium, audience rises' beat), s06 standard endcard 1.8. SFX: applause@9.4 & 27.0, accent@15.5, sting@29.8."
+}

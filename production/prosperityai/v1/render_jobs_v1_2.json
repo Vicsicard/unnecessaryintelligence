@@ -1,0 +1,14 @@
+[
+ {
+  "in": "../../../brand/templates/layer_headline.html",
+  "out": "layers/kick.png",
+  "w": 1080,
+  "h": 140,
+  "transparent": true,
+  "params": {
+   "text": "FINANCIAL INCLUSION INITIATIVE",
+   "color": "orange",
+   "size": 42
+  }
+ }
+]

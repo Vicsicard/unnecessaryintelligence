@@ -1,0 +1,5 @@
+{"look_id": "e7dd61a7b03d4c14b1bb7e4e0f0641d9", "aspect_ratio": "9:16", "resolution": "1080p",
+ "avatar_engine": "heygen-avatar-6-turbo",
+ "motion_prompt": "Confident fictional billionaire technology founder delivering a historic keynote announcement on a massive stage. Controlled open-hand gestures, natural eye contact, subtle confident facial expression, measured body movement, sincere enthusiasm, professional presentation posture. No exaggerated comedy, distracting gestures, or unnatural movements.",
+ "jobs": [["vp1_ricky", "audio/n01.wav"]],
+ "_note": "Controlled Ricky-founder test — portrait-native stage look e7dd61a7 (auditorium backdrop, clicker, earpiece) + existing n01.wav (3.3s). One render only; output to presenter_ricky/ so existing presenter dirs are untouched. Authorized by owner. Est ~$0.15-0.17 at ~$0.046-0.05/s."}
