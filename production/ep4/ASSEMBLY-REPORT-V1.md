@@ -20,12 +20,12 @@
 | 9.41–19.65 | s02 `[0–10.24]` | Podcast: Washington invented America → Series A / France → Brooooo. plug_blip @9.35 |
 | 19.65–26.37 | s03a `[0–6.72]` | Teacher question → "France." → "Series A." (+ ding @22.7) |
 | 26.37–29.57 | s03b `[6.7–9.9]` | Teacher despair punch-in 1.0→1.11, drop_sweep @26.5 |
-| 29.57–34.82 | s04 `[0–5.25]` | StudyBro neon logo video, Wade tagline VO @29.7 |
+| 29.57–34.82 | s04 `[0–5.25]` | StudyBro neon logo video, s04 original audio (no VO overlay) |
 | 34.82–end | V4 endcard | Reel 0.6 s flash / Master 1.8 s standard + sting @34.85 |
 
 ## Audio
 
-narration = source audio s01+s02+s03a+s03b+s04 (s04 audio fully muted per user direction) + bed -12 dB. Wade tagline as overlay. Peaks at limiter.
+narration = source audio s01+s02+s03a+s03b+s04 (s04 original audio restored; Wade VO overlay removed per user direction) + bed -12 dB. Wade tagline as overlay. Peaks at limiter.
 
 ## Flags for review
 
