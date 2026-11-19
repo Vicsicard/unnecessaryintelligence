@@ -1,32 +1,44 @@
-# UI Episode 3 — BuyForMe AI: "Trump's Black Friday Wish List"
+# UI Episode 3 — BuyForMe AI: "Trump's Black Friday Wish List" (VIRAL REEL CUT)
 
 **Status: ASSETS PREP — awaiting image handoff + manual Meta animation.**
-Target runtime 14.5–16.5s (approved dialogue fits ~15s at brisk-corporate pace;
-do not cut lines to hit 15). 1080×1920, photorealistic premium satire.
+Premise, dialogue, $250,000 price, and punchline are APPROVED — unchanged.
+This revision is direction only: edit it like a Reel/TikTok comedy ad, not a
+corporate spot. Hook inside 0.5s. Two exports from the same material.
 
-## Approved script (verbatim — do not alter)
+## Revised scene plan (reel pacing)
 
-| Scene | Time | Visual | Dialogue |
-|---|---|---|---|
-| 1 | 0–3.5 | Corporate spokesperson, luxe showroom, Black Friday | "This Black Friday, BuyForMe AI found President Trump's ballroom gift wish list!" |
-| 2 | 3.5–6 | Extravagant gold-crystal chandelier + purchase confirm | *(none — ORDER CONFIRMED graphic carries it)* |
-| 3 | 6–10.7 | Customer horrified at confirmation | Customer: "YOU SPENT A QUARTER MILLION DOLLARS?!" — AI (delighted, sincere): "Relax. We used your credit card." |
-| 4 | 10.7–13 | Clean BuyForMe AI product card | Narrator: "BuyForMe AI. Your money. Our decisions." |
-| 5 | 13–15 | UI V4 endcard + sting | — |
+| # | Time | Cut | Content | Audio |
+|---|---|---|---|---|
+| 1 | 0–3.0 | Hard open mid-gesture — no lead-in | Spokesperson line + `TRUMP'S BALLROOM GIFT WISH LIST` headline punches in @0.3s | `open_hit` @0.0 + `shop_bed` (ducked) |
+| 2 | 3.0–5.4 | Rapid cut + punch-in | Chandelier luxury drift; `confirm_card` snaps in @+0.25s, `$250,000.00` gets `reveal_impact` | `checkout_blip` @cut + `reveal_impact` @price |
+| 3 | 5.4–10.6 | Punch-in zoom on shout | "YOU SPENT A QUARTER MILLION DOLLARS?!" → `drop_sweep` + ~0.8s dead-air pause (bed ducks out) → AI cheerfully sincere: "Relax. We used your credit card." | `drop_sweep` into pause; bed returns under reply |
+| 4 | 10.6–12.8 | Product card | "BuyForMe AI. Your money. Our decisions." VO | bed tail |
+| 5R | 12.5–12.8 | **Reel:** 0.6s UI logo flash inside the card's tail; final 0.3s clean → loops | | `shop_bed` out |
+| 5M | 12.8–14.6 | **Master:** standard 1.8s V4 endcard | | UI sting |
 
-## Hard requirements
+**Reel ≈ 13.0s · Master ≈ 14.6s** — both inside social spec.
 
-- Price on screen: **$250,000.00** (not $250k, not $25,000)
-- Recipient: **President Donald Trump** (fictional satire — never implied real)
-- Headline S1: `TRUMP'S BALLROOM GIFT WISH LIST`
-- Confirm card S2: `ORDER CONFIRMED` / `TRUMP BALLROOM CHANDELIER` /
-  `$250,000.00` / `Gift recipient: President Donald Trump`
-- Tone: cheerful competent AI committing an absurd purchase — no slapstick
-- AI response delivered with sincerity, not sarcasm
-- Order-confirm text rendered **deterministically** (local graphic) — correct
-  spelling/price guaranteed; Meta clips supply the photographic scenes only
+## Captions (reel style)
 
-## Punchline
+Bold karaoke ASS — Inter-SemiBold white, heavy outline, bottom-safe.
+Emphasis words in UI orange + ~15% larger:
+**TRUMP**, **BLACK FRIDAY**, **$250,000**, **YOUR CREDIT CARD**.
 
-"Relax. We used your credit card." — timing: lands ~2s after the customer's
-shout, let it breathe ~0.8s before the product card.
+## Sound design (all synthesized locally — `tools/make_ep3_sfx.py`)
+
+`open_hit` 0.55s · `shop_bed` 16s electronic loop @128bpm ·
+`checkout_blip` 0.35s · `reveal_impact` 0.9s · `drop_sweep` 0.5s ·
+UI sting (existing). No licensed music — zero rights risk.
+Mix via `mix_music_bed.py --sfx file@sec@gain` + `alimiter`.
+
+## Performance notes (locked)
+
+- AI reply = cheerful sincerity, NOT sarcasm.
+- ~0.8s comedic dead-air before the AI reply — audio drops under it.
+- Keep characters realistic; the joke is the money, not the faces.
+- Fictional satire — never implied as a real transaction.
+
+## Two exports (one build, two manifests)
+
+- `ep3_reel` — `ui_endcard:false`, logo-flash layer @12.5s, loops into open.
+- `ep3_master` — standard `endcard` shot + sting (permanent default untouched).
