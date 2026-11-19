@@ -25,7 +25,7 @@
 
 ## Audio
 
-narration = source audio s01+s02+s03a+s03b+s04 (s04 ducked to 0.35 so Wade dominates) + bed -12 dB. Wade tagline as overlay. Peaks at limiter.
+narration = source audio s01+s02+s03a+s03b+s04 (s04 audio fully muted per user direction) + bed -12 dB. Wade tagline as overlay. Peaks at limiter.
 
 ## Flags for review
 
