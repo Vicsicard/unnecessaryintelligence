@@ -25,7 +25,7 @@
       "duration": 5.0 },
     { "id": "s04", "type": "presenter", "fullscreen": true,
       "source": "presenter/vp4.mp4", "duration": 3.2, "offset": 0.0 },
-    { "id": "s05", "type": "still", "source": "graphics/endcard.png", "duration": 2.4 }
+    { "id": "s05", "type": "still", "source": "graphics/endcard.png", "duration": 3.3 }
   ],
-  "_provisional_durations": "s01/s04 = presenter clip + hold; s02/s03 = last-state time + tail. Set after measured narration + timestamps.json."
+  "_provisional_durations": "shots sum to 23.0 = pacing.total (authoritative). s01/s04 = presenter clip + hold; s02/s03 = last-state time + tail. Reconcile all three after measured narration + timestamps.json."
 }

@@ -21,6 +21,11 @@ ffmpeg/Edge/Python only, or with paid paths stubbed via `--dry-run`.
 
 - `build_captions.py`: ffmpeg input index bug — used argv length as stream
   index; now enumerated per-beat (`[i:a]`). Caught by the smoke test.
+- `build_captions.py`: narration.wav ended at last beat (~20.6s) while the
+  manifest totals 23.0s — would have tripped build_video's duration
+  preflight. `pacing.total` is now authoritative: narration is
+  `apad`/`atrim`-padded to it. Verified: test narration.wav = 9.00s
+  exactly at pacing.total 9.0.
 - `gen_tts.py` / `render_presenter.py` `--dry-run`: previously hard-stopped
   on missing voice/look before showing the plan; dry-run now prints the
   plan with the blocker labeled.

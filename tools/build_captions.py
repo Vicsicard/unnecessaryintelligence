@@ -134,10 +134,19 @@ def main():
                            for w in words]}
         inputs += ["-i", wav]
         delays.append(f"[{i}:a]adelay={int(start*1000)}|{int(start*1000)}[a{i}]")
+    total = float(pacing.get("total", 0))
     mix = ";".join(delays) + ";" + "".join(f"[a{i}]" for i in range(len(order))) \
         + f"amix=inputs={len(order)}:normalize=0[m]"
+    # pacing.total is the authoritative timeline length — narration.wav is
+    # padded/trimmed to it so build_video's duration preflight compares
+    # like-for-like against the manifest's shot-duration sum.
+    if total > 0:
+        mix += f";[m]apad,atrim=0:{total}[p]"
+        map_label = "[p]"
+    else:
+        map_label = "[m]"
     subprocess.run(["ffmpeg", "-y", *inputs, "-filter_complex", mix,
-                    "-map", "[m]", "-ac", "1", "-ar", "48000",
+                    "-map", map_label, "-ac", "1", "-ar", "48000",
                     os.path.join(audio, "narration.wav")], check=True,
                    capture_output=True)
     json.dump(ts, open(os.path.join(prod, "timestamps.json"), "w"), indent=1)
