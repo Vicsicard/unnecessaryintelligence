@@ -1,0 +1,5 @@
+{"look_id": "f00a2f4b726e4808866d4740ede6e1e0", "aspect_ratio": "9:16", "resolution": "1080p",
+ "avatar_engine": "heygen-avatar-6-turbo",
+ "motion_prompt": "Confident fictional billionaire technology founder delivering a historic keynote announcement on a massive stage. Controlled open-hand gestures, sincere enthusiasm, strong camera engagement, professional presentation posture, natural facial expressions. No exaggerated comedy, winking, or unnatural movements.",
+ "jobs": [["vp2_a6t", "audio/n04.wav"], ["vp3_a6t", "audio/n05.wav"]],
+ "_note": "v1.1 — A6T founder renders for affordability beat (n04, 2.39s) and closing punchline (n05, 4.06s). vp1_a6t (n01) already rendered in the Avatar-6 test. Est ~$0.30 at $0.046/s actual."}

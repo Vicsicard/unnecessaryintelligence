@@ -1,0 +1,8 @@
+[
+ {"in": "../../../brand/templates/keynote_stage.html", "out": "graphics/stage_open.png", "params": {"marquee": "POVERTY ENDS TODAY"}},
+ {"in": "../../../brand/templates/keynote_stage.html", "out": "graphics/stage_incl.png", "params": {"marquee": "FINANCIAL INCLUSION INITIATIVE"}},
+ {"in": "../../../brand/templates/keynote_stage.html", "out": "graphics/stage_ovation.png", "params": {"marquee": "POVERTY ENDS TODAY", "ovation": "1"}},
+ {"in": "../../../brand/templates/reveal_base.html", "out": "graphics/reveal_blank.png", "params": {"kicker": "", "title": "", "sub": "", "foot": "PROSPERITYAI GLOBAL KEYNOTE"}},
+ {"in": "../../../brand/templates/layer_headline.html", "out": "layers/name.png", "w": 1080, "h": 300, "transparent": true, "params": {"text": "ProsperityAI™", "color": "white", "size": 104}},
+ {"in": "../../../brand/templates/layer_headline.html", "out": "layers/tagline.png", "w": 1080, "h": 120, "transparent": true, "params": {"text": "END POVERTY FOREVER", "color": "orange", "size": 42}}
+]

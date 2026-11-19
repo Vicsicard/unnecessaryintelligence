@@ -138,14 +138,20 @@ class Builder:
     def composite(self, base, layers, d, name, base_crop=None):
         """bg plate + individually-animated transparent-PNG layer overlays.
 
-        layer: {"png","x","y","start","anim","travel","dur"}
+        layer: {"png"|"video","x","y","start","anim","travel","dur"}
           anim: slideup (default) | slidedown | slideleft | slideright | fadein
           quadratic ease-out; each layer also alpha-fades in over `dur`.
         This is per-element motion — unlike `graphic` states which swap
         whole frames, each layer moves on its own track over the base.
         `base` may be a PNG plate or a video file (e.g. presenter clip —
         scaled to fill, last frame held to shot duration); `base_crop`
-        ("w:h:x:y") trims a video base first to remove letterbox bands."""
+        ("w:h:x:y") trims a video base first to remove letterbox bands.
+        Video layers: {"video": file, "crop","w","h"} — optional `crop`
+        ("w:h:x:y") trims the source first (letterbox removal), then it is
+        scaled to fit inside the w×h box (or to width w when h is omitted)
+        and starts playing at `start`; its last frame is held to shot end.
+        Any layer may set "out" (seconds, shot-relative) to also fade out
+        over `dur` at that time — e.g. a scanline sweep that disappears."""
         is_vid = os.path.splitext(base)[1].lower() in (".mp4", ".mov", ".webm")
         inputs = (["-i", base] if is_vid
                   else ["-loop","1","-t",f"{d:.3f}","-i",base])
@@ -157,8 +163,23 @@ class Builder:
             st = float(lay.get("start", 0)); fd = float(lay.get("dur", 0.45))
             tr = float(lay.get("travel", 80)); anim = lay.get("anim", "slideup")
             x, y = lay.get("x", 0), lay.get("y", 0)
-            inputs += ["-loop","1","-t",f"{d:.3f}","-i",lay["png"]]
-            fc.append(f"[{i}:v]format=rgba,fade=t=in:st={st}:d={fd}:alpha=1[l{i}]")
+            fade = f"fade=t=in:st={st}:d={fd}:alpha=1"
+            if lay.get("out") is not None:
+                fade += f",fade=t=out:st={float(lay['out'])}:d={fd}:alpha=1"
+            if lay.get("video"):
+                inputs += ["-i", lay["video"]]
+                lc = f"crop={lay['crop']}," if lay.get("crop") else ""
+                if lay.get("w") and lay.get("h"):
+                    sc = f"scale={lay['w']}:{lay['h']}:force_original_aspect_ratio=decrease"
+                elif lay.get("w"):
+                    sc = f"scale={lay['w']}:-2"
+                else:
+                    sc = ""
+                fc.append(f"[{i}:v]{lc}{sc},tpad=stop=-1:stop_mode=clone,"
+                          f"setpts=PTS-STARTPTS+{st}/TB,format=rgba,{fade}[l{i}]")
+            else:
+                inputs += ["-loop","1","-t",f"{d:.3f}","-i",lay["png"]]
+                fc.append(f"[{i}:v]format=rgba,{fade}[l{i}]")
             p = f"min(max((t-{st})/{fd},0),1)"
             e = f"(1-{p})*(1-{p})"  # quadratic ease-out residual offset
             if   anim == "slideup":    xe, ye = str(x), f"{y}+{tr}*{e}"
@@ -257,6 +278,29 @@ class Builder:
             check=True,capture_output=True)
         return out
 
+    def endcard(self, src, d, name, variant="standard"):
+        """Permanent UI brand close — the V4 logo plate on navy.
+
+        variant:
+          standard — 1.5-2s, subtle slow zoom + short fade-in (broadcast sting)
+          flash    — ≤1.0s abrupt comedic cut: static, fast fade-in only
+        Pair with audio/ui_sting.wav via mix_music_bed --sfx. The shot's
+        `duration` controls length; the variant controls motion."""
+        out = os.path.join(self.segdir, name + ".mp4")
+        if variant == "flash":
+            vf = (f"scale={self.W}:{self.H}:force_original_aspect_ratio=increase,"
+                  f"crop={self.W}:{self.H},fade=t=in:st=0:d=0.10,fps={self.fps}")
+        else:
+            vf = (f"scale={self.W}:{self.H}:force_original_aspect_ratio=increase,"
+                  f"crop={self.W}:{self.H},"
+                  f"zoompan=z='min(zoom+0.0006,1.06)':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d=1:s={self.W}x{self.H},"
+                  f"fade=t=in:st=0:d=0.15,fps={self.fps}")
+        subprocess.run(["ffmpeg","-y","-loop","1","-t",f"{d:.3f}","-i",src,
+            "-vf",vf+",format=yuv420p",
+            "-t",f"{d:.3f}","-c:v","libx264","-pix_fmt","yuv420p","-an",out],
+            check=True,capture_output=True)
+        return out
+
     # ── validation ───────────────────────────────────────────────────
     def validate(self, shots):
         errs, total = [], 0.0
@@ -277,7 +321,7 @@ class Builder:
                 self.resolve(s["base"])
                 starts = []
                 for lay in s.get("layers", []):
-                    self.resolve(lay["png"]); starts.append(float(lay.get("start", 0)))
+                    self.resolve(lay.get("png") or lay.get("video")); starts.append(float(lay.get("start", 0)))
                 if starts != sorted(starts): errs.append(f"{sid}: layer starts not ascending")
                 if starts and starts[-1] >= s["duration"]:
                     errs.append(f"{sid}: last layer start >= duration")
@@ -287,13 +331,40 @@ class Builder:
                     end = s.get("out", s.get("in",0)+s["duration"])
                     if end > dur_of(sp) + 0.05:
                         errs.append(f"{sid}: broll needs {end:.1f}s but source is {dur_of(sp):.1f}s")
+            elif t == "endcard":
+                self.resolve(s["source"])
+                if s.get("variant","standard") == "flash" and s["duration"] > 1.5:
+                    errs.append(f"{sid}: flash endcard should be ≤1.5s (got {s['duration']})")
             else:
                 errs.append(f"{sid}: unknown type '{t}'")
         return errs, total
 
     # ── pipeline ─────────────────────────────────────────────────────
+    def _has_endcard(self, shots):
+        """UI brand close present? type=endcard, or the last shot's source
+        filename mentions 'endcard' (back-compat with pre-endcard manifests)."""
+        for s in shots:
+            if s.get("type") == "endcard":
+                return True
+        if shots:
+            src = shots[-1].get("source") or shots[-1].get("base") or ""
+            if "endcard" in os.path.basename(src).lower():
+                return True
+        return False
+
     def build(self, only=None, do_export=True, do_mux=True):
-        shots = self.m["shots"]
+        shots = list(self.m["shots"])
+        # Permanent UI endcard rule: auto-append the standard brand close
+        # unless the manifest already ends with one or opts out via
+        # "ui_endcard": false. See docs — every original UI video ends with
+        # the V4 logo + tagline.
+        if not only and self.m.get("ui_endcard", True) and not self._has_endcard(shots):
+            shots.append({"id": "endcard", "type": "endcard",
+                          "source": self.m.get("endcard_source", "graphics/endcard.png"),
+                          "duration": float(self.m.get("endcard_duration", 1.8)),
+                          "variant": self.m.get("endcard_variant", "standard")})
+            print("auto-appended UI endcard (standard, "
+                  f"{self.m.get('endcard_duration', 1.8)}s)")
         if only:
             shots = [s for s in shots if s["id"] in only]
             if not shots: fail(f"--only matched no shots: {only}")
@@ -314,12 +385,16 @@ class Builder:
             elif t == "graphic":   src = self.graphic([(self.resolve(png),st) for png,st in s["states"]], d, sid,
                                         s.get("transitions"))
             elif t == "composite": src = self.composite(self.resolve(s["base"]),
-                                        [{**lay, "png": self.resolve(lay["png"])}
+                                        [{**lay, **{k: self.resolve(lay[k])
+                                                    for k in ("png","video")
+                                                    if lay.get(k)}}
                                          for lay in s["layers"]], d, sid, s.get("base_crop"))
             elif t == "broll":     src = self.broll(self.resolve(s["source"]), d, sid,
                                         s.get("in",0.0), s.get("out"),
                                         s.get("fade_in",0.0), s.get("fade_out",0.0), s.get("mode","cover"),
                                         s.get("scrim",False))
+            elif t == "endcard":   src = self.endcard(self.resolve(s["source"]), d, sid,
+                                        s.get("variant","standard"))
             files.append((src,d))
             print(f"{sid:6s} {d:6.2f}s  {t}")
         print("segments done; total", round(total,2),"s")

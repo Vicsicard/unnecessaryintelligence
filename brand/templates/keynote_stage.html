@@ -1,0 +1,75 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><style>
+  @font-face{font-family:Inter;src:url("../fonts/Inter.ttf")}
+  @font-face{font-family:Inter;src:url("../fonts/Inter-SemiBold.ttf");font-weight:600}
+  *{margin:0;box-sizing:border-box}
+  /* Extravagant keynote stage plate — 1080x1920. The LED mega-screen is an
+     empty rect the pipeline fills with a founder video layer.
+     Params: ovation=1 (audience arms up), marquee (top LED ticker text) */
+  body{width:1080px;height:1920px;position:relative;overflow:hidden;
+       font-family:Inter;color:#F5F7FA;
+       background:
+         radial-gradient(ellipse 140% 60% at 50% -8%, #1B2B52 0%, #0A1128 55%, #050914 100%);}
+  .beam{position:absolute;top:-80px;width:240px;height:1200px;opacity:.55;
+        background:linear-gradient(to bottom, rgba(120,160,255,.55), rgba(120,160,255,0));
+        clip-path:polygon(46% 0,54% 0,100% 100%,0 100%);filter:blur(6px)}
+  .b1{left:60px;transform:rotate(-16deg)}
+  .b2{left:420px;opacity:.4}
+  .b3{right:60px;transform:rotate(16deg)}
+  .screen{position:absolute;left:50px;right:50px;top:330px;height:640px;
+          border:10px solid #0E1A36;border-radius:18px;
+          background:#060B1A;
+          box-shadow:0 0 90px rgba(80,130,255,.28),0 0 30px rgba(255,140,26,.12),inset 0 0 60px #000}
+  .screen::after{content:"";position:absolute;inset:0;border-radius:8px;
+          box-shadow:inset 0 0 0 2px rgba(120,160,255,.35)}
+  .screen-label{position:absolute;top:300px;left:0;right:0;text-align:center;
+          font-weight:600;font-size:26px;letter-spacing:14px;color:#8FA8D8}
+  .truss{position:absolute;left:0;right:0;top:250px;height:14px;
+          background:repeating-linear-gradient(90deg,#16264A 0 26px,#0A1128 26px 52px)}
+  .deck{position:absolute;left:0;right:0;bottom:280px;height:110px;
+        background:linear-gradient(to bottom,#0D1730,#070D1E);border-top:3px solid #2A3E6E}
+  .deck::before{content:"";position:absolute;left:8%;right:8%;top:-14px;height:6px;
+        background:linear-gradient(90deg,transparent,rgba(255,140,26,.7),transparent)}
+  .aud{position:absolute;left:0;right:0;bottom:0;height:300px;
+        background:linear-gradient(to bottom,#04060F,#02040A)}
+  .head{position:absolute;bottom:0;width:64px;height:110px;
+        background:#0A0F1E;border-radius:50% 50% 0 0/40% 40% 0 0;
+        box-shadow:inset -8px -6px 0 rgba(120,160,255,.10)}
+  .arm{position:absolute;bottom:96px;width:12px;height:72px;background:#0A0F1E;border-radius:6px}
+  .marquee{position:absolute;top:120px;left:0;right:0;text-align:center;
+          font-weight:600;font-size:34px;letter-spacing:10px;color:#FF8C1A}
+</style></head>
+<body>
+  <div class="beam b1"></div><div class="beam b2"></div><div class="beam b3"></div>
+  <div class="marquee" id="mq"></div>
+  <div class="truss"></div>
+  <div class="screen-label">PROSPERITYAI GLOBAL KEYNOTE</div>
+  <div class="screen"></div>
+  <div class="deck"></div>
+  <div class="aud" id="aud"></div>
+<script>
+  const q = new URLSearchParams(location.search);
+  document.getElementById("mq").textContent = q.get("marquee") || "PROSPERITYAI GLOBAL KEYNOTE";
+  const ov = q.get("ovation") === "1";
+  const aud = document.getElementById("aud");
+  // deterministic pseudo-random audience row
+  let seed = 7;
+  const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+  for (let x = -20; x < 1120; x += 62 + Math.floor(rnd() * 26)) {
+    const h = document.createElement("div");
+    h.className = "head";
+    h.style.left = x + "px";
+    h.style.height = 92 + Math.floor(rnd() * 34) + "px";
+    h.style.width = 54 + Math.floor(rnd() * 20) + "px";
+    h.style.opacity = 0.75 + rnd() * 0.25;
+    aud.appendChild(h);
+    if (ov && rnd() > 0.4) {
+      const a = document.createElement("div");
+      a.className = "arm";
+      a.style.left = (x + 8 + Math.floor(rnd() * 30)) + "px";
+      a.style.transform = "rotate(" + (rnd() * 46 - 23) + "deg)";
+      aud.appendChild(a);
+    }
+  }
+</script>
+</body></html>

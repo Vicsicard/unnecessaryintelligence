@@ -1,0 +1,233 @@
+{
+  "slug": "prosperityai-v1_1",
+  "version": "v1.1",
+  "width": 1080,
+  "height": 1920,
+  "fps": 25,
+  "xfade": 0.4,
+  "duration_tolerance": 0.5,
+  "ui_endcard": true,
+  "segments_dir": "segments",
+  "concat_list": "concat_list_v1_1.txt",
+  "concat_out": "preview/prosperityai_v1_1.mp4",
+  "narration_wav": "audio/narration.wav",
+  "captions_ass": "captions/narration.ass",
+  "fonts_dir": "brand/fonts",
+  "export": "exports/prosperityai_v1_1.mp4",
+  "shots": [
+    {
+      "id": "s00",
+      "type": "composite",
+      "duration": 4.2,
+      "base": "graphics/stage_open.png",
+      "layers": [
+        {
+          "video": "presenter_avatar6/vp1_a6t.mp4",
+          "crop": "1080:608:0:656",
+          "w": 980,
+          "h": 640,
+          "x": 50,
+          "y": 374,
+          "start": 0.15,
+          "anim": "fadein",
+          "dur": 0.5
+        }
+      ]
+    },
+    {
+      "id": "s01",
+      "type": "composite",
+      "duration": 6.0,
+      "base": "graphics/reveal_blank.png",
+      "layers": [
+        {
+          "png": "layers/name.png",
+          "x": 0,
+          "y": 560,
+          "start": 0.3,
+          "anim": "slideup",
+          "travel": 90,
+          "dur": 0.5
+        },
+        {
+          "png": "layers/tagline.png",
+          "x": 0,
+          "y": 770,
+          "start": 1.6,
+          "anim": "slideup",
+          "travel": 70,
+          "dur": 0.45
+        },
+        {
+          "png": "layers/tag199.png",
+          "x": 72,
+          "y": 950,
+          "start": 3.0,
+          "anim": "slideup",
+          "travel": 110,
+          "dur": 0.55
+        }
+      ]
+    },
+    {
+      "id": "s02",
+      "type": "composite",
+      "duration": 6.4,
+      "base": "graphics/dash.png",
+      "layers": [
+        {
+          "png": "layers/inc.png",
+          "x": 72,
+          "y": 460,
+          "start": 1.4,
+          "anim": "slideup",
+          "travel": 80,
+          "dur": 0.45
+        },
+        {
+          "png": "layers/scanline.png",
+          "x": 72,
+          "y": 460,
+          "start": 1.6,
+          "anim": "slidedown",
+          "travel": 480,
+          "dur": 0.9,
+          "out": 2.9
+        },
+        {
+          "png": "layers/scan.png",
+          "x": 72,
+          "y": 710,
+          "start": 3.0,
+          "anim": "slideup",
+          "travel": 80,
+          "dur": 0.45
+        },
+        {
+          "png": "layers/done.png",
+          "x": 72,
+          "y": 960,
+          "start": 4.5,
+          "anim": "slideup",
+          "travel": 80,
+          "dur": 0.45
+        },
+        {
+          "png": "layers/punch.png",
+          "x": 0,
+          "y": 1300,
+          "start": 5.3,
+          "anim": "slideup",
+          "travel": 120,
+          "dur": 0.5
+        }
+      ]
+    },
+    {
+      "id": "s03",
+      "type": "composite",
+      "duration": 3.0,
+      "base": "graphics/stage_incl.png",
+      "layers": [
+        {
+          "video": "presenter_avatar6/vp2_a6t.mp4",
+          "crop": "1080:608:0:656",
+          "w": 980,
+          "h": 640,
+          "x": 50,
+          "y": 374,
+          "start": 0.1,
+          "anim": "fadein",
+          "dur": 0.45
+        }
+      ]
+    },
+    {
+      "id": "s04",
+      "type": "composite",
+      "duration": 4.4,
+      "base": "graphics/price.png",
+      "layers": [
+        {
+          "png": "layers/tag59.png",
+          "x": 72,
+          "y": 560,
+          "start": 0.4,
+          "anim": "slideup",
+          "travel": 110,
+          "dur": 0.55
+        },
+        {
+          "png": "layers/sub.png",
+          "x": 0,
+          "y": 1060,
+          "start": 1.4,
+          "anim": "fadein",
+          "dur": 0.5
+        },
+        {
+          "png": "layers/disc.png",
+          "x": 90,
+          "y": 1500,
+          "start": 2.6,
+          "anim": "fadein",
+          "dur": 0.6
+        }
+      ]
+    },
+    {
+      "id": "s05",
+      "type": "composite",
+      "duration": 5.8,
+      "base": "graphics/stage_ovation.png",
+      "layers": [
+        {
+          "video": "presenter_avatar6/vp3_a6t.mp4",
+          "crop": "1080:608:0:656",
+          "w": 980,
+          "h": 640,
+          "x": 50,
+          "y": 374,
+          "start": 0.15,
+          "anim": "fadein",
+          "dur": 0.5
+        },
+        {
+          "png": "graphics/confetti_1.png",
+          "x": 0,
+          "y": 0,
+          "start": 1.2,
+          "anim": "slidedown",
+          "travel": 1500,
+          "dur": 4.0
+        },
+        {
+          "png": "graphics/confetti_2.png",
+          "x": 0,
+          "y": 0,
+          "start": 1.8,
+          "anim": "slidedown",
+          "travel": 1500,
+          "dur": 4.0
+        },
+        {
+          "png": "graphics/confetti_3.png",
+          "x": 0,
+          "y": 0,
+          "start": 2.4,
+          "anim": "slidedown",
+          "travel": 1500,
+          "dur": 4.0
+        }
+      ]
+    },
+    {
+      "id": "s06",
+      "type": "endcard",
+      "source": "graphics/endcard.png",
+      "duration": 1.8,
+      "variant": "standard"
+    }
+  ],
+  "_measured": "sum 31.6 = pacing.total (narration.wav 31.6s incl endcard tail). Founder clips are Avatar 6 Turbo (keynote motion prompts) inside the LED mega-screen of keynote_stage plates. s00 open 4.2, s01 sequential reveal name@0.3/tagline@1.6/$199@3.0, s02 dashboard rows + scanline sweep (fade-out) + punch@5.3, s03 founder on screen 3.0, s04 pricing 4.4, s05 ovation 5.8 (line lands ~28.1, confetti 1.2/1.8/2.4), s06 standard endcard 1.8. SFX: applause@9.4 & 26.0, accent@15.5, sting@29.8."
+}
