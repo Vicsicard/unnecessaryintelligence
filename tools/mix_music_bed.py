@@ -59,7 +59,8 @@ def main():
           f"afade=t=out:st={nd - a.fade_out if nd > a.fade_out else 0}:d={a.fade_out}[mus];"
           f"[mus][0:a]{duck}[ducked];"
           + (";".join(sfx_parts) + ";" if sfx_parts else "") +
-          f"[0:a][ducked]{''.join(sfx_labels)}amix=inputs={2 + len(sfx_labels)}:duration=first:normalize=0[m]")
+          f"[0:a][ducked]{''.join(sfx_labels)}amix=inputs={2 + len(sfx_labels)}:duration=first:normalize=0,"
+          f"alimiter=limit=0.94:level=false[m]")
     if a.video and a.export:
         cmd = ["ffmpeg", "-y", "-i", a.narration, "-i", a.music, "-i", a.video,
                *sfx_ins,

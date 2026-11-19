@@ -1,0 +1,260 @@
+{
+  "slug": "prosperityai-v1_4_loop",
+  "version": "v1_4_loop",
+  "width": 1080,
+  "height": 1920,
+  "fps": 25,
+  "xfade": 0.4,
+  "duration_tolerance": 0.5,
+  "ui_endcard": false,
+  "segments_dir": "segments",
+  "concat_list": "concat_list_v1_4_loop.txt",
+  "concat_out": "preview/prosperityai_v1_4_loop.mp4",
+  "narration_wav": "audio/narration_s.wav",
+  "captions_ass": "captions/narration_s.ass",
+  "fonts_dir": "brand/fonts",
+  "export": "exports/prosperityai_v1_4_loop.mp4",
+  "shots": [
+    {
+      "id": "s00",
+      "type": "composite",
+      "duration": 3.34,
+      "base": "presenter_ricky/r2_n01.mp4",
+      "layers": [
+        {
+          "png": "layers/band.png",
+          "x": 0,
+          "y": 1240,
+          "start": 0.9,
+          "anim": "fadein",
+          "dur": 0.35
+        },
+        {
+          "png": "layers/h1.png",
+          "x": 0,
+          "y": 1260,
+          "start": 0.95,
+          "anim": "slidedown",
+          "travel": 320,
+          "dur": 0.5
+        }
+      ]
+    },
+    {
+      "id": "s01",
+      "type": "composite",
+      "duration": 5.51,
+      "base": "graphics/reveal_blank.png",
+      "layers": [
+        {
+          "png": "layers/name.png",
+          "x": 0,
+          "y": 560,
+          "start": 0.15,
+          "anim": "slideup",
+          "travel": 90,
+          "dur": 0.5
+        },
+        {
+          "png": "layers/tagline.png",
+          "x": 0,
+          "y": 770,
+          "start": 1.1,
+          "anim": "slideup",
+          "travel": 70,
+          "dur": 0.45
+        },
+        {
+          "png": "layers/tag199_big.png",
+          "x": 2,
+          "y": 950,
+          "start": 2.6,
+          "anim": "slideup",
+          "travel": 110,
+          "dur": 0.55
+        }
+      ]
+    },
+    {
+      "id": "s02",
+      "type": "composite",
+      "duration": 5.9,
+      "base": "graphics/dash.png",
+      "layers": [
+        {
+          "png": "layers/inc.png",
+          "x": 72,
+          "y": 460,
+          "start": 1.1,
+          "anim": "slideup",
+          "travel": 80,
+          "dur": 0.45
+        },
+        {
+          "png": "layers/scanline.png",
+          "x": 72,
+          "y": 460,
+          "start": 1.35,
+          "anim": "slidedown",
+          "travel": 480,
+          "dur": 0.9,
+          "out": 2.9
+        },
+        {
+          "png": "layers/scan.png",
+          "x": 72,
+          "y": 710,
+          "start": 2.7,
+          "anim": "slideup",
+          "travel": 80,
+          "dur": 0.45
+        },
+        {
+          "png": "layers/done.png",
+          "x": 72,
+          "y": 960,
+          "start": 4.1,
+          "anim": "slideup",
+          "travel": 80,
+          "dur": 0.45
+        },
+        {
+          "png": "layers/punch_big.png",
+          "x": -27,
+          "y": 1300,
+          "start": 5.0,
+          "anim": "slideup",
+          "travel": 60,
+          "dur": 0.28
+        }
+      ]
+    },
+    {
+      "id": "s03",
+      "type": "composite",
+      "duration": 2.32,
+      "base": "presenter_ricky/r2_n04.mp4",
+      "layers": [
+        {
+          "png": "layers/kick.png",
+          "x": 0,
+          "y": 1450,
+          "start": 0.4,
+          "anim": "fadein",
+          "dur": 0.45
+        }
+      ]
+    },
+    {
+      "id": "s04",
+      "type": "composite",
+      "duration": 3.89,
+      "base": "graphics/price.png",
+      "layers": [
+        {
+          "png": "layers/tag59_big.png",
+          "x": 2,
+          "y": 560,
+          "start": 0.2,
+          "anim": "slideup",
+          "travel": 70,
+          "dur": 0.32
+        },
+        {
+          "png": "layers/sub.png",
+          "x": 0,
+          "y": 1060,
+          "start": 1.0,
+          "anim": "fadein",
+          "dur": 0.5
+        },
+        {
+          "png": "layers/disc.png",
+          "x": 90,
+          "y": 1500,
+          "start": 2.1,
+          "anim": "fadein",
+          "dur": 0.6
+        }
+      ]
+    },
+    {
+      "id": "s05a",
+      "type": "composite",
+      "duration": 2.8,
+      "base": "presenter_ricky/r2_n05.mp4",
+      "layers": []
+    },
+    {
+      "id": "s05b",
+      "type": "composite",
+      "duration": 4.33,
+      "base": "graphics/stage_ovation.png",
+      "layers": [
+        {
+          "png": "layers/screen_hold.png",
+          "x": 50,
+          "y": 374,
+          "start": 0.0,
+          "anim": "fadein",
+          "dur": 0.4
+        },
+        {
+          "png": "graphics/confetti_m1.png",
+          "x": 0,
+          "y": 0,
+          "start": 0.2,
+          "anim": "slidedown",
+          "travel": 1500,
+          "dur": 2.5
+        },
+        {
+          "png": "graphics/confetti_m2.png",
+          "x": 0,
+          "y": 0,
+          "start": 0.8,
+          "anim": "slidedown",
+          "travel": 1500,
+          "dur": 2.5
+        },
+        {
+          "png": "graphics/confetti_m3.png",
+          "x": 0,
+          "y": 0,
+          "start": 1.4,
+          "anim": "slidedown",
+          "travel": 1500,
+          "dur": 2.5
+        },
+        {
+          "png": "graphics/confetti_m2.png",
+          "x": 0,
+          "y": 0,
+          "start": 2.2,
+          "anim": "slidedown",
+          "travel": 1500,
+          "dur": 2.5
+        },
+        {
+          "png": "graphics/confetti_m1.png",
+          "x": 0,
+          "y": 0,
+          "start": 2.8,
+          "anim": "slidedown",
+          "travel": 1500,
+          "dur": 2.5
+        },
+        {
+          "png": "layers/logo_flash.png",
+          "x": 320,
+          "y": 836,
+          "start": 3.2,
+          "anim": "fadein",
+          "dur": 0.25,
+          "out": 3.75
+        }
+      ]
+    }
+  ],
+  "_measured": "social loop cut 28.09s \u2014 same re-edited timeline; no endcard (ui_endcard:false); confetti second pass; UI logo flash 26.9-27.5 inside ovation; sting@27.05; loops to founder open."
+}
