@@ -1,0 +1,67 @@
+{
+  "slug": "prosperityai-eps2f",
+  "version": "eps2f",
+  "width": 1080,
+  "height": 1920,
+  "fps": 25,
+  "xfade": 0.4,
+  "duration_tolerance": 0.5,
+  "ui_endcard": true,
+  "segments_dir": "segments",
+  "concat_list": "concat_list_eps2f.txt",
+  "concat_out": "preview/prosperityai_eps2f.mp4",
+  "narration_wav": "audio/narration_e.wav",
+  "fonts_dir": "brand/fonts",
+  "export": "exports/prosperityai_eps2_final_candidate.mp4",
+  "shots": [
+    {
+      "id": "s00",
+      "type": "composite",
+      "duration": 10.24,
+      "base": "eps2e/source.mp4",
+      "layers": []
+    },
+    {
+      "id": "sA",
+      "type": "composite",
+      "duration": 2.55,
+      "base": "presenter_ricky/r2_n04.mp4",
+      "layers": []
+    },
+    {
+      "id": "sB",
+      "type": "composite",
+      "duration": 3.3,
+      "base": "graphics/reveal_blank.png",
+      "layers": [
+        {
+          "png": "layers/done.png",
+          "x": 72,
+          "y": 620,
+          "start": 0.35,
+          "anim": "slideup",
+          "travel": 70,
+          "dur": 0.4
+        },
+        {
+          "png": "layers/punch_big.png",
+          "x": -27,
+          "y": 1060,
+          "start": 1.25,
+          "anim": "slideup",
+          "travel": 60,
+          "dur": 0.28
+        }
+      ]
+    },
+    {
+      "id": "s06",
+      "type": "endcard",
+      "source": "graphics/endcard_big.png",
+      "duration": 1.8,
+      "variant": "standard"
+    }
+  ],
+  "_measured": "17.89s \u00e2\u20ac\u201d eps2e (720x1280) as s00 base upscaled to 1080x1920; sA adds founder n04 line ('Can't afford it? We've thought of that too.', r2_n04 A6T clip, same avatar-group identity); sB analysis card: ANALYSIS COMPLETE row -> EARN MORE MONEY punch-in; s06 standard UI endcard. Mix: eps2e audio + n04 + bed ducked from 10.1s, accent@14.05, sting@16.1. No $199 assets anywhere \u00e2\u20ac\u201d $999 preserved.",
+  "captions_ass": "captions/eps2f.ass"
+}

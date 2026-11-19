@@ -157,7 +157,7 @@ class Builder:
                   else ["-loop","1","-t",f"{d:.3f}","-i",base])
         pre = f"crop={base_crop}," if base_crop else ""
         fc = [f"[0:v]{pre}scale={self.W}:{self.H}:force_original_aspect_ratio=increase,"
-              f"crop={self.W}:{self.H},tpad=stop=-1:stop_mode=clone,format=yuv420p[bg]"]
+              f"crop={self.W}:{self.H},tpad=stop=-1:stop_mode=clone,fps={self.fps},format=yuv420p[bg]"]
         prev = "bg"
         for i, lay in enumerate(layers, 1):
             st = float(lay.get("start", 0)); fd = float(lay.get("dur", 0.45))
