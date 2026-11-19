@@ -1,0 +1,23 @@
+{
+  "brand": "Unnecessary Intelligence (UI)",
+  "vibe": "polished corporate tech-ad minimalism — the joke lands because the production is dead-serious",
+  "canvas": { "width": 1080, "height": 1920, "fps": 25 },
+  "colors": {
+    "paper": "#F5F7FA",
+    "ink": "#101828",
+    "accent": "#2E5BFF",
+    "secondary": "#667085",
+    "punchline": "#F79009",
+    "card": "#FFFFFF",
+    "hairline": "#D0D5DD"
+  },
+  "fonts": {
+    "body": "Inter",
+    "weight_regular": "fonts/Inter.ttf",
+    "weight_semibold": "fonts/Inter-SemiBold.ttf",
+    "serif_accent": "fonts/Playfair-Bold.ttf"
+  },
+  "caption_style": "ASS burned, <=4-word grouped cues, white Inter semibold on dark scrim band, bottom-safe (MarginV ~14% of H)",
+  "endcard_rule": "brand lockup + fictional tagline only — no real product claims",
+  "licensing_note": "Inter + Playfair Display are SIL OFL. Any music must be cleared/CC-BY with attribution. Never reuse MALB/CHM presenter or brand assets."
+}

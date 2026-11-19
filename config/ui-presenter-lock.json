@@ -1,0 +1,21 @@
+{
+  "brand": "ui",
+  "status": "NOT CONFIGURED — fill before first paid render",
+  "voice": {
+    "voice_id": null,
+    "name": "TBD — pick/create UI narrator voice; record HeyGen voice_id here",
+    "note": "Script calls it 'the corporate ad voice'. HeyGen stock voice or design_voice. Do NOT reuse MALB Weston or CHM voices."
+  },
+  "presenter": {
+    "group_id": null,
+    "group_name": "Steve (UI presenter — TBD)",
+    "approved_look_ids": {},
+    "approved_look_names": {},
+    "retired_look_ids": {},
+    "note": "Steve is an ORDINARY human — the gag. Source options: HeyGen stock/public look (fastest, already licensed), create_prompt_avatar for a bespoke Steve, or a consented real actor photo avatar. Must NOT be Jonas/Jerome — different brands."
+  },
+  "policy": {
+    "verify_before_render": "python tools/verify_presenter.py --look-id <id>",
+    "no_foreign_brand_assets": true
+  }
+}

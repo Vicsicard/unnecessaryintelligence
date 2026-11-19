@@ -1,0 +1,18 @@
+{
+  "slug": "humangpt",
+  "title": "HumanGPT — The future of artificial intelligence is Steve",
+  "voice_id": null,
+  "beats": {
+    "n01": "Meet HumanGPT — the most advanced productivity intelligence ever deployed.",
+    "n02": "It writes your emails. It sits in your meetings.",
+    "n03": "It remembers every password — and only asks for vacation twice a year.",
+    "n04": "HumanGPT. The future of artificial intelligence is Steve."
+  },
+  "beat_order": ["n01", "n02", "n03", "n04"],
+  "transcript": {
+    "n01": "Meet HumanGPT — the most advanced productivity intelligence ever deployed.",
+    "n02": "It writes your emails. It sits in your meetings.",
+    "n03": "It remembers every password — and only asks for vacation twice a year.",
+    "n04": "HumanGPT. The future of artificial intelligence is Steve."
+  }
+}

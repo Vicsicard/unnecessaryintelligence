@@ -1,0 +1,40 @@
+# secrets — never commit
+.env
+.env.*
+!.env.template
+**/secrets*
+**/credentials*
+*api_key*
+*_key.txt
+
+# generated/paid media — regenerable or paid; keep out of git
+*.mp4
+*.mp3
+*.wav
+*.mov
+*.webm
+production/**/audio/*.json
+!production/**/audio/.gitkeep
+production/**/presenter/*.json
+!production/**/presenter/.gitkeep
+production/**/exports/*
+!production/**/exports/.gitkeep
+production/**/preview/*
+!production/**/preview/.gitkeep
+production/**/segments/*
+production/**/concat*.txt
+
+# generated plates are regenerable from templates — keep manifests only
+production/**/graphics/*.png
+!production/**/graphics/.gitkeep
+
+# validation outputs — regenerable
+validation/out/
+tools/tests/assets/
+
+# tooling
+__pycache__/
+*.pyc
+node_modules/
+.DS_Store
+Thumbs.db

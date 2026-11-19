@@ -1,0 +1,31 @@
+{
+  "slug": "humangpt",
+  "version": "v1-provisional",
+  "width": 1080,
+  "height": 1920,
+  "fps": 25,
+  "xfade": 0.4,
+  "duration_tolerance": 0.5,
+  "segments_dir": "segments",
+  "concat_list": "concat_list.txt",
+  "concat_out": "preview/humangpt_v1.mp4",
+  "narration_wav": "audio/narration.wav",
+  "captions_ass": "captions/narration.ass",
+  "fonts_dir": "../../brand/fonts",
+  "export": "exports/humangpt_v1.mp4",
+  "shots": [
+    { "id": "s00", "type": "still", "source": "graphics/title.png", "duration": 2.2 },
+    { "id": "s01", "type": "presenter", "fullscreen": true,
+      "source": "presenter/vp1.mp4", "duration": 5.3, "offset": 0.0 },
+    { "id": "s02", "type": "graphic",
+      "states": [["graphics/claim_0.png", 0], ["graphics/claim_1.png", 2.2]],
+      "duration": 4.0 },
+    { "id": "s03", "type": "graphic",
+      "states": [["graphics/claim_2.png", 0], ["graphics/claim_3.png", 2.6]],
+      "duration": 5.0 },
+    { "id": "s04", "type": "presenter", "fullscreen": true,
+      "source": "presenter/vp4.mp4", "duration": 3.2, "offset": 0.0 },
+    { "id": "s05", "type": "still", "source": "graphics/endcard.png", "duration": 2.4 }
+  ],
+  "_provisional_durations": "s01/s04 = presenter clip + hold; s02/s03 = last-state time + tail. Set after measured narration + timestamps.json."
+}

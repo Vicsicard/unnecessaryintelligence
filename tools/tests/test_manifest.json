@@ -1,0 +1,24 @@
+{
+  "slug": "pipeline-smoke-test",
+  "width": 1080,
+  "height": 1920,
+  "fps": 25,
+  "xfade": 0.4,
+  "duration_tolerance": 0.5,
+  "segments_dir": "assets/segments",
+  "concat_list": "assets/concat.txt",
+  "concat_out": "assets/preview.mp4",
+  "narration_wav": "assets/narration.wav",
+  "captions_ass": "assets/captions/test.ass",
+  "fonts_dir": "../../brand/fonts",
+  "export": "assets/test.mp4",
+  "shots": [
+    { "id": "s00", "type": "still", "source": "assets/title.png", "duration": 1.0 },
+    { "id": "s01", "type": "presenter", "fullscreen": true,
+      "source": "assets/presenter.mp4", "duration": 3.0 },
+    { "id": "s02", "type": "graphic",
+      "states": [["assets/claim_0.png", 0], ["assets/claim_1.png", 1.5]],
+      "duration": 3.0 },
+    { "id": "s03", "type": "still", "source": "assets/endcard.png", "duration": 2.0 }
+  ]
+}

@@ -1,0 +1,30 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><style>
+  @font-face{font-family:Inter;src:url("../fonts/Inter.ttf")}
+  @font-face{font-family:Inter;src:url("../fonts/Inter-SemiBold.ttf");font-weight:600}
+  *{margin:0;box-sizing:border-box}
+  /* square meme card — render at 1080x1080 */
+  body{width:1080px;height:1080px;background:#F5F7FA;font-family:Inter;
+       display:flex;flex-direction:column;align-items:center;justify-content:space-between;
+       padding:56px 64px;text-align:center}
+  .top{font-size:44px;font-weight:600;color:#101828;line-height:1.25;max-width:920px}
+  .img{width:920px;height:560px;background:#E4E7EC;border-radius:24px;object-fit:cover}
+  .bot{font-size:44px;font-weight:600;color:#101828;line-height:1.25;max-width:920px}
+  .wm{position:absolute;bottom:20px;right:28px;font-size:20px;color:#98A2B3}
+</style></head>
+<body>
+  <div class="top" id="top">INTRODUCING HUMANGPT</div>
+  <img class="img" id="img" src="" alt="">
+  <div class="bot" id="bot">THE FUTURE OF AI IS STEVE</div>
+  <div class="wm" id="wm">UnnecessaryIntelligence.com</div>
+  <script>
+    const q = new URLSearchParams(location.search);
+    for (const id of ["top", "bot", "wm"]) {
+      const v = q.get(id);
+      if (v !== null) document.getElementById(id).innerHTML = v;
+    }
+    const img = q.get("img");
+    if (img) document.getElementById("img").src = img;
+    else document.getElementById("img").style.display = "none";
+  </script>
+</body></html>

@@ -1,0 +1,13 @@
+name = "ui-media-serve"
+main = "worker.js"
+compatibility_date = "2025-11-01"
+account_id = "REPLACE_WITH_CF_ACCOUNT_ID"
+
+# Create the bucket first: wrangler r2 bucket create ui-social-distribution
+# Set the upload key:      wrangler secret put UPLOAD_KEY
+# Public delivery:         attach a workers.dev route or custom domain after
+#                          first deploy; record the host in config/ui-brand.json
+
+[[r2_buckets]]
+binding = "UI_MEDIA"
+bucket_name = "ui-social-distribution"

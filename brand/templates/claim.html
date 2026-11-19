@@ -1,0 +1,33 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><style>
+  @font-face{font-family:Inter;src:url("../fonts/Inter.ttf")}
+  @font-face{font-family:Inter;src:url("../fonts/Inter-SemiBold.ttf");font-weight:600}
+  *{margin:0;box-sizing:border-box}
+  body{width:1080px;height:1920px;background:#F5F7FA;font-family:Inter;
+       display:flex;flex-direction:column;justify-content:center;padding:0 90px}
+  .kicker{font-size:30px;letter-spacing:8px;text-transform:uppercase;color:#2E5BFF;margin-bottom:36px}
+  .claim{font-size:84px;font-weight:600;color:#101828;line-height:1.15;letter-spacing:-1px}
+  .claim .lit{color:#101828}
+  .claim .dim{color:#C4CBD6}
+  .foot{margin-top:64px;font-size:26px;color:#98A2B3}
+  .badge{position:absolute;top:64px;right:64px;font-size:22px;color:#98A2B3;
+         border:1px solid #D0D5DD;border-radius:999px;padding:10px 22px}
+</style></head>
+<body>
+  <div class="badge" id="badge">HumanGPT</div>
+  <div class="kicker" id="kicker">Key capabilities</div>
+  <div class="claim" id="claim">It writes your emails.</div>
+  <div class="claim" id="claim2" style="margin-top:36px"></div>
+  <div class="foot" id="foot">Results may vary. Steve does his best.</div>
+  <script>
+    const q = new URLSearchParams(location.search);
+    const set = (id, v, cls) => { if (v === null) return;
+      const el = document.getElementById(id); el.innerHTML = v;
+      if (cls) el.className += " " + cls; };
+    set("kicker", q.get("kicker"));
+    set("claim", q.get("claim"));
+    set("claim2", q.get("claim2"), q.get("claim2cls"));
+    set("foot", q.get("foot"));
+    set("badge", q.get("badge"));
+  </script>
+</body></html>

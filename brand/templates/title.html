@@ -1,0 +1,25 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><style>
+  @font-face{font-family:Inter;src:url("../fonts/Inter.ttf")}
+  @font-face{font-family:Inter;src:url("../fonts/Inter-SemiBold.ttf");font-weight:600}
+  *{margin:0;box-sizing:border-box}
+  body{width:1080px;height:1920px;background:#F5F7FA;font-family:Inter;
+       display:flex;flex-direction:column;justify-content:center;align-items:center;position:relative}
+  .wordmark{font-size:120px;font-weight:600;color:#101828;letter-spacing:-2px}
+  .wordmark em{font-style:normal;color:#2E5BFF}
+  .sub{margin-top:28px;font-size:34px;color:#667085;letter-spacing:10px;text-transform:uppercase}
+  .rule{width:120px;height:4px;background:#2E5BFF;margin:56px 0 0}
+  .legal{position:absolute;bottom:64px;font-size:24px;color:#98A2B3}
+</style></head>
+<body>
+  <div class="wordmark" id="wm">Human<em>GPT</em></div>
+  <div class="sub" id="sub">A product of Unnecessary Intelligence</div>
+  <div class="rule"></div>
+  <div class="legal" id="legal">Not affiliated with intelligence of any kind.</div>
+  <script>
+    const q = new URLSearchParams(location.search);
+    if (q.get("wm")) document.getElementById("wm").textContent = q.get("wm");
+    if (q.get("sub")) document.getElementById("sub").textContent = q.get("sub");
+    if (q.get("legal")) document.getElementById("legal").textContent = q.get("legal");
+  </script>
+</body></html>

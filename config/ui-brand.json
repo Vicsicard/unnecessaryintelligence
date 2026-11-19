@@ -1,0 +1,19 @@
+{
+  "project": "Unnecessary Intelligence (UI)",
+  "domain": "UnnecessaryIntelligence.com (planned, not deployed)",
+  "canvas": { "width": 1080, "height": 1920, "fps": 25, "aspect": "9:16" },
+  "durations": { "commercial_target_s": [15, 30], "humangpt_target_s": 20 },
+  "export": { "vcodec": "h264", "pix_fmt": "yuv420p", "acodec": "aac", "arate": 48000 },
+  "env": {
+    "HEYGEN_API_KEY": "Developer API wallet key (paid TTS + avatar renders) — never commit",
+    "UI_BROWSER_EXE": "optional override for render_html.py browser path",
+    "METRICOOL_BRAND_ID": "TBD — create the UI brand in Metricool before scheduling",
+    "CF_ACCOUNT_ID": "TBD — needed for tools/r2-serve deploy"
+  },
+  "social": {
+    "status": "future — no publishing until brand + channels exist",
+    "planned": ["YouTube Shorts", "TikTok", "Instagram Reels"],
+    "delivery": "tools/r2-serve worker + ui-social-distribution bucket (create when needed)"
+  },
+  "first_production": "production/humangpt"
+}

@@ -1,0 +1,26 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><style>
+  @font-face{font-family:Inter;src:url("../fonts/Inter.ttf")}
+  @font-face{font-family:Inter;src:url("../fonts/Inter-SemiBold.ttf");font-weight:600}
+  *{margin:0;box-sizing:border-box}
+  body{width:1080px;height:1920px;background:#101828;font-family:Inter;
+       display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center}
+  .tag{font-size:96px;font-weight:600;color:#F5F7FA;letter-spacing:-2px;line-height:1.1}
+  .tag em{font-style:normal;color:#F79009}
+  .brand{margin-top:48px;font-size:30px;letter-spacing:12px;text-transform:uppercase;color:#667085}
+  .legal{position:absolute;bottom:64px;font-size:22px;color:#475467;padding:0 120px}
+</style></head>
+<body>
+  <div class="tag" id="tag">Human<em>GPT</em></div>
+  <div class="tag" id="tag2" style="font-size:52px;margin-top:36px;color:#D0D5DD">
+    The future of artificial intelligence is <em style="color:#F79009">Steve.</em></div>
+  <div class="brand" id="brand">Unnecessary Intelligence</div>
+  <div class="legal" id="legal">HumanGPT is a fictional product. Steve is real — to him.</div>
+  <script>
+    const q = new URLSearchParams(location.search);
+    for (const id of ["tag", "tag2", "brand", "legal"]) {
+      const v = q.get(id);
+      if (v !== null) document.getElementById(id).innerHTML = v;
+    }
+  </script>
+</body></html>
