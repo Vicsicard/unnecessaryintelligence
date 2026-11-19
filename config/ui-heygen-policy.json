@@ -1,0 +1,29 @@
+{
+  "rule": "UI-HEYGEN-API-ONLY",
+  "rule_doc": "docs/UI-HEYGEN-API-ONLY.md",
+  "billing_source": "heygen_developer_api_wallet",
+  "billing_verification": "GET /v3/users/me -> data.wallet.remaining_balance must be a readable number before any paid submit; subscription/Studio/Playground/web-app credits are NOT an approved billing source",
+  "engines": {
+    "avatar-iv": {
+      "usd_per_second": 0.05,
+      "note": "default when avatar_engine is omitted; photo avatar rate per HeyGen self-serve API price card (verify actual rate from wallet delta)"
+    },
+    "heygen-avatar-6-turbo": {
+      "usd_per_second": 0.05,
+      "usd_per_second_2k": 0.0875,
+      "note": "Avatar 6 Turbo — advertised rate; verify actual from wallet delta on first render"
+    },
+    "heygen-avatar-6": {
+      "usd_per_second": 0.10,
+      "usd_per_second_2k": 0.145,
+      "note": "Avatar 6 (Pro) — NOT yet verified on this account; gated until a successful controlled test"
+    }
+  },
+  "limits": {
+    "motion_prompt_max_chars": 1200,
+    "resolutions": ["1080p", "2k"],
+    "motion_expressiveness": ["default", "less"],
+    "no_paid_retries": "failed paid renders are never retried automatically — stop and report",
+    "no_billing_fallback": "if the API wallet is unreadable or a request would bill a non-API source, STOP — never substitute billing"
+  }
+}

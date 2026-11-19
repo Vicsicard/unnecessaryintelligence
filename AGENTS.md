@@ -14,9 +14,19 @@ pipeline (ported to `tools/`); see `docs/ARCHITECTURE.md` and
 - **No secrets in the repo.** `.env` is gitignored; `HEYGEN_API_KEY` is
   read from env only. The CHM `r2-serve` pattern's hardcoded-key defect is
   why `tools/r2-serve/worker.js` uses a Wrangler secret.
+- **UI-HEYGEN-API-ONLY** (permanent, see `docs/UI-HEYGEN-API-ONLY.md`):
+  all HeyGen generation goes through the Developer API wallet only —
+  subscription/Studio/Playground/web credits are prohibited, no billing
+  fallback ever. `render_presenter.py` refuses paid submits when the API
+  wallet balance is unreadable; engines are allowlisted in
+  `config/ui-heygen-policy.json` (Avatar IV default; Avatar 6 Turbo opt-in
+  via `avatar_engine` in presenter jobs). HeyGen MCP tools are approved
+  for read-only discovery only — never for paid generation.
 - **Presenter lock is fail-closed.** `tools/verify_presenter.py` exits
   non-zero until `config/ui-presenter-lock.json` has real look/voice ids.
   Never render an unlisted look; never reuse MALB Jonas/CHM Jerome assets.
+  `--require-engine <engine>` also verifies a look's `supported_api_engines`
+  before Avatar 6 renders.
 
 ## Environment
 

@@ -1,0 +1,5 @@
+{"look_id": "f00a2f4b726e4808866d4740ede6e1e0", "aspect_ratio": "9:16", "resolution": "1080p",
+ "avatar_engine": "heygen-avatar-6-turbo",
+ "motion_prompt": "Confident fictional billionaire technology founder delivering a historic keynote announcement. Controlled open-hand gestures, natural eye contact, subtle confident facial expression, measured body movement, sincere enthusiasm, and professional presentation posture. No exaggerated comedy, distracting gestures, or unnatural movements.",
+ "jobs": [["vp1_a6t", "audio/n01.wav"]],
+ "_note": "Controlled Avatar 6 Turbo test — founder look Sebastian Office 11 + existing n01.wav (3.3s, 'Today, we're announcing the end of poverty.'). One render only; output to presenter_avatar6/ so v1 presenter/ is untouched. Requires HEYGEN_API_KEY + verified API wallet. Est ~$0.17 at $0.05/s."}

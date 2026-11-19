@@ -45,6 +45,7 @@ def main():
     p.add_argument("--look-id")
     p.add_argument("--character", help="named character block in the lock's 'characters' map (e.g. founder)")
     p.add_argument("--voice-id", help="narration voice_id under test — must equal the locked UI voice id")
+    p.add_argument("--require-engine", help="verify the look's supported_api_engines includes this engine (e.g. heygen-avatar-6-turbo); fails closed if unverifiable")
     p.add_argument("--list-approved", action="store_true")
     args = p.parse_args()
 
@@ -104,7 +105,17 @@ def main():
         die(f"look belongs to group {data.get('group_id')} — expected locked group {pres['group_id']}")
     if data.get("status") != "completed":
         die(f"look status {data.get('status')} — not renderable")
-    print(f"PREFLIGHT PASS: {data.get('name')} ({args.look_id}) — group verified, status completed")
+    if args.require_engine:
+        engines = data.get("supported_api_engines")
+        if engines is None:
+            die(f"look {args.look_id}: supported_api_engines absent from API "
+                f"response — cannot verify {args.require_engine} eligibility; "
+                "refusing paid render without confirmation")
+        if args.require_engine not in engines:
+            die(f"look {args.look_id} does not support {args.require_engine} "
+                f"(supported: {engines}) — no engine substitution permitted")
+    print(f"PREFLIGHT PASS: {data.get('name')} ({args.look_id}) — group verified, status completed"
+          + (f", engine {args.require_engine} supported" if args.require_engine else ""))
 
 
 if __name__ == "__main__":
