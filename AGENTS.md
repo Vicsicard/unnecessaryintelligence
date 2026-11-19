@@ -35,3 +35,13 @@ python tools/build_video.py tools/tests/test_manifest.json
 ```
 
 Expected: `tools/tests/assets/test.mp4` — 1080×1920, 25fps, h264, aac.
+
+## Owner review (always, after any production)
+
+After producing any export, serve the production dir on a local port so the
+owner can review in a browser — do this every time, unprompted:
+
+```
+cd production/<slug> && python -m http.server 8790 --bind 127.0.0.1
+# -> http://127.0.0.1:8790/exports/   (preview/ QC frames also reachable)
+```
