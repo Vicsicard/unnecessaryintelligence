@@ -28,6 +28,11 @@ python ../../tools/gen_tts.py --script script.json --out audio
 ## 4. Pacing
 - Measure each wav (`ffprobe`); write `pacing.json` — beat start offsets +
   total. Leave breaths (~0.3–0.5s) between beats.
+- **Alignment rule:** every presenter/graphic shot must START exactly at its
+  narration beat's start, and end ~0.3s after the beat ends — otherwise
+  lips/graphic changes lead the audio. Shot durations must sum to
+  `pacing.total` (authoritative — `build_captions.py` pads narration.wav to
+  it). Graphic `states` times are shot-relative: word start − shot start.
 ```
 python ../../tools/build_captions.py --prod .
 ```

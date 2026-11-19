@@ -8,14 +8,18 @@ confident feature claims, minimal light plates. The reveal is the last line
 
 ## Beats (≈46 spoken words → ~18s narration + holds ≈ 20–21s)
 
-| beat | sec | visual | line |
-|---|---|---|---|
-| s00 | 0.0–2.2 | title plate "HumanGPT" (light, corporate) | — (music sting) |
-| n01 | ~2.5–7.5 | Steve, direct to camera (presenter) | "Meet HumanGPT — the most advanced productivity intelligence ever deployed." |
-| n02 | ~7.8–11.8 | claim plate 1→2, word-timed | "It writes your emails. It sits in your meetings." |
-| n03 | ~12.1–17.1 | claim plate 3, word-timed | "It remembers every password — and only asks for vacation twice a year." |
-| n04 | ~17.4–20.6 | Steve again, tiny shrug/wave (presenter) | "HumanGPT. The future of artificial intelligence is Steve." |
-| s05 | ~20.6–23.0 | endcard: wordmark + tagline + brand | — (music tail) |
+| shot | window | beat | visual | line |
+|---|---|---|---|---|
+| s00 | 0.0–2.5 | — | title plate "HumanGPT" (light, corporate) | — (music sting) |
+| s01 | 2.5–7.5 | n01 | Steve, direct to camera (presenter) | "Meet HumanGPT — the most advanced productivity intelligence ever deployed." |
+| s02 | 7.5–11.8 | n02 | claim plate, word-timed 2nd claim | "It writes your emails. It sits in your meetings." |
+| s03 | 11.8–16.9 | n03 | claim plate, word-timed 2nd claim | "It remembers every password — and only asks for vacation twice a year." |
+| s04 | 16.9–20.5 | n04 | Steve again, tiny shrug (presenter) | "HumanGPT. The future of artificial intelligence is Steve." |
+| s05 | 20.5–23.0 | — | endcard: wordmark + tagline + brand | — (music tail) |
+
+Rule: presenter/graphic shots start exactly at their beat's start; each
+shot's duration = beat duration + ~0.3s tail (measured from real wavs
+after TTS — provisional values above).
 
 ## Punchline rule
 The ad must read 100% sincere until ~17s. No wink, no comedy voice — the
