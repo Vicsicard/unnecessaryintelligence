@@ -1,0 +1,71 @@
+{
+  "slug": "ep4-reel",
+  "version": "ep4r1",
+  "width": 1080,
+  "height": 1920,
+  "fps": 25,
+  "xfade": 0.0,
+  "duration_tolerance": 0.6,
+  "ui_endcard": false,
+  "segments_dir": "segments",
+  "concat_list": "concat_ep4_reel.txt",
+  "concat_out": "preview/ep4_reel.mp4",
+  "narration_wav": "audio/nar_reel.wav",
+  "fonts_dir": "brand/fonts",
+  "export": "exports/ep4_reel_v1.mp4",
+  "captions_ass": "captions/ep4.ass",
+  "shots": [
+    {
+      "id": "s01",
+      "type": "composite",
+      "duration": 9.41,
+      "base": "preview/tmp/s01_tight.mp4",
+      "layers": [
+        {
+          "png": "graphics/hook.png",
+          "x": 0,
+          "y": 340,
+          "start": 0.25,
+          "dur": 0.22,
+          "anim": "fadein"
+        }
+      ]
+    },
+    {
+      "id": "s02",
+      "type": "composite",
+      "duration": 10.24,
+      "base": "source/s02.mp4",
+      "layers": []
+    },
+    {
+      "id": "s03a",
+      "type": "composite",
+      "duration": 5.92,
+      "base": "preview/tmp/s03a.mp4",
+      "layers": []
+    },
+    {
+      "id": "s03b",
+      "type": "composite",
+      "duration": 4.0,
+      "base": "preview/tmp/s03b.mp4",
+      "layers": []
+    },
+    {
+      "id": "s04",
+      "type": "composite",
+      "duration": 4.4,
+      "base": "graphics/product_card.png",
+      "layers": []
+    },
+    {
+      "id": "s05",
+      "type": "endcard",
+      "source": "brand/assets/endcard_v4.png",
+      "duration": 0.6,
+      "variant": "flash"
+    }
+  ],
+  "_measured": "reel ~34.6s - s01 tight 9.41 + s02 10.24 + s03a 5.92 + s03b punch 4.0 + card 4.4 + flash 0.6"
+}
