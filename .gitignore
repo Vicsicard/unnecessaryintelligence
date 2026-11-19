@@ -30,6 +30,9 @@ production/**/graphics/*.png
 production/**/layers/*.png
 !production/**/layers/.gitkeep
 
+# external-media intake scratch — inputs aren't ours to commit
+production/_intake/
+
 # validation outputs — regenerable
 validation/out/
 tools/tests/assets/
