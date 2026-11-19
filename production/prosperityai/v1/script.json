@@ -1,0 +1,21 @@
+{
+  "slug": "prosperityai-v1",
+  "title": "ProsperityAI — the end of poverty, just $199/month",
+  "voice_id": "4fb113051a204040826fddb19f29c21c",
+  "beats": {
+    "n01": "Today, we're announcing the end of poverty.",
+    "n02": "Introducing ProsperityAI. Just $199 a month.",
+    "n03": "Our AI analyzes your finances and tells you exactly how to become wealthy.",
+    "n04": "Can't afford it? We've thought of that too.",
+    "n05": "Because nobody should be too poor to afford the end of poverty."
+  },
+  "beat_order": ["n01", "n02", "n03", "n04", "n05"],
+  "transcript": {
+    "n01": "Today, we're announcing the end of poverty.",
+    "n02": "Introducing ProsperityAI. Just $199 a month.",
+    "n03": "Our AI analyzes your finances and tells you exactly how to become wealthy.",
+    "n04": "Can't afford it? We've thought of that too.",
+    "n05": "Because nobody should be too poor to afford the end of poverty."
+  },
+  "note": "All lines are the founder's on-stage keynote delivery — Brock voice (founder_voice in ui-presenter-lock.json). Completely sincere; no narrator."
+}

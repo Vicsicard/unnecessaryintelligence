@@ -19,8 +19,23 @@
     "retired_look_ids": {},
     "note": "Ordinary corporate employee — the gag. Public photo avatar, status completed, landscape-preferred (see manifest note re: 9:16 render vs inset fallback)."
   },
+  "characters": {
+    "founder": {
+      "group_id": "ea6b5b730b12471f9d21f583aa024713",
+      "group_name": "Sebastian (ProsperityAI founder — UI character)",
+      "approved_look_ids": { "office11": "f00a2f4b726e4808866d4740ede6e1e0" },
+      "approved_look_names": { "office11": "Sebastian Office 11" },
+      "retired_look_ids": {},
+      "note": "Fictional tech-billionaire founder for campaign 002 ProsperityAI (~50s exec, blazer). Public photo avatar, status completed. Recurring character — reuse for all ProsperityAI commercials."
+    }
+  },
+  "founder_voice": {
+    "voice_id": "4fb113051a204040826fddb19f29c21c",
+    "name": "Brock — Confident & Persuasive (en-US)",
+    "note": "ProsperityAI founder voice — confident keynote delivery, completely sincere. HeyGen public catalog voice. Distinct from Garret (narrator) and Keanu (Steve)."
+  },
   "policy": {
-    "verify_before_render": "python tools/verify_presenter.py --look-id <id>",
+    "verify_before_render": "python tools/verify_presenter.py --look-id <id> [--character <name>]",
     "no_foreign_brand_assets": true
   }
 }

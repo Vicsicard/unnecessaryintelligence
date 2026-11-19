@@ -1,0 +1,24 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1080
+PlayResY: 1920
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Inter,63,&H00FFFFFF,&H000B1220,&H800B1220,-1,0,0,0,100,100,0,0,3,15,0,2,60,60,268,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.30,0:00:02.00,Default,,0,0,0,,Today, we're announcing the
+Dialogue: 0,0:00:02.05,0:00:03.09,Default,,0,0,0,,end of poverty.
+Dialogue: 0,0:00:04.50,0:00:08.64,Default,,0,0,0,,Introducing ProsperityAI. Just $199
+Dialogue: 0,0:00:08.77,0:00:09.21,Default,,0,0,0,,a month.
+Dialogue: 0,0:00:10.46,0:00:11.99,Default,,0,0,0,,Our AI analyzes your
+Dialogue: 0,0:00:12.04,0:00:13.27,Default,,0,0,0,,finances and tells you
+Dialogue: 0,0:00:13.31,0:00:14.30,Default,,0,0,0,,exactly how to become
+Dialogue: 0,0:00:14.51,0:00:14.94,Default,,0,0,0,,wealthy.
+Dialogue: 0,0:00:16.86,0:00:18.05,Default,,0,0,0,,Can't afford it? We've
+Dialogue: 0,0:00:18.09,0:00:18.79,Default,,0,0,0,,thought of that too.
+Dialogue: 0,0:00:24.34,0:00:25.45,Default,,0,0,0,,Because nobody should be
+Dialogue: 0,0:00:25.49,0:00:26.82,Default,,0,0,0,,too poor to afford
+Dialogue: 0,0:00:26.94,0:00:27.86,Default,,0,0,0,,the end of poverty.

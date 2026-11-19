@@ -43,12 +43,18 @@ def api(path, key):
 def main():
     p = argparse.ArgumentParser()
     p.add_argument("--look-id")
+    p.add_argument("--character", help="named character block in the lock's 'characters' map (e.g. founder)")
     p.add_argument("--voice-id", help="narration voice_id under test — must equal the locked UI voice id")
     p.add_argument("--list-approved", action="store_true")
     args = p.parse_args()
 
     lock = load_lock()
-    pres = lock.get("presenter") or {}
+    if args.character:
+        pres = (lock.get("characters") or {}).get(args.character)
+        if not pres:
+            die(f"character '{args.character}' not configured in lock 'characters' map")
+    else:
+        pres = lock.get("presenter") or {}
     approved = pres.get("approved_look_ids") or {}
     names = pres.get("approved_look_names") or {}
 

@@ -135,16 +135,23 @@ class Builder:
             check=True,capture_output=True)
         return out
 
-    def composite(self, base, layers, d, name):
+    def composite(self, base, layers, d, name, base_crop=None):
         """bg plate + individually-animated transparent-PNG layer overlays.
 
         layer: {"png","x","y","start","anim","travel","dur"}
           anim: slideup (default) | slidedown | slideleft | slideright | fadein
           quadratic ease-out; each layer also alpha-fades in over `dur`.
         This is per-element motion — unlike `graphic` states which swap
-        whole frames, each layer moves on its own track over the base."""
-        inputs = ["-loop","1","-t",f"{d:.3f}","-i",base]
-        fc = ["[0:v]format=yuv420p[bg]"]
+        whole frames, each layer moves on its own track over the base.
+        `base` may be a PNG plate or a video file (e.g. presenter clip —
+        scaled to fill, last frame held to shot duration); `base_crop`
+        ("w:h:x:y") trims a video base first to remove letterbox bands."""
+        is_vid = os.path.splitext(base)[1].lower() in (".mp4", ".mov", ".webm")
+        inputs = (["-i", base] if is_vid
+                  else ["-loop","1","-t",f"{d:.3f}","-i",base])
+        pre = f"crop={base_crop}," if base_crop else ""
+        fc = [f"[0:v]{pre}scale={self.W}:{self.H}:force_original_aspect_ratio=increase,"
+              f"crop={self.W}:{self.H},tpad=stop=-1:stop_mode=clone,format=yuv420p[bg]"]
         prev = "bg"
         for i, lay in enumerate(layers, 1):
             st = float(lay.get("start", 0)); fd = float(lay.get("dur", 0.45))
@@ -308,7 +315,7 @@ class Builder:
                                         s.get("transitions"))
             elif t == "composite": src = self.composite(self.resolve(s["base"]),
                                         [{**lay, "png": self.resolve(lay["png"])}
-                                         for lay in s["layers"]], d, sid)
+                                         for lay in s["layers"]], d, sid, s.get("base_crop"))
             elif t == "broll":     src = self.broll(self.resolve(s["source"]), d, sid,
                                         s.get("in",0.0), s.get("out"),
                                         s.get("fade_in",0.0), s.get("fade_out",0.0), s.get("mode","cover"),

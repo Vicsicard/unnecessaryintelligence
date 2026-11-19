@@ -1,0 +1,55 @@
+{
+  "slug": "prosperityai-v1",
+  "version": "v1",
+  "width": 1080,
+  "height": 1920,
+  "fps": 25,
+  "xfade": 0.4,
+  "duration_tolerance": 0.5,
+  "segments_dir": "segments",
+  "concat_list": "concat_list.txt",
+  "concat_out": "preview/prosperityai_v1.mp4",
+  "narration_wav": "audio/narration.wav",
+  "captions_ass": "captions/narration.ass",
+  "fonts_dir": "brand/fonts",
+  "export": "exports/prosperityai_v1.mp4",
+  "shots": [
+    { "id": "s00", "type": "composite", "duration": 4.2,
+      "base": "presenter/vp1.mp4", "base_crop": "1080:800:0:620",
+      "layers": [
+        { "png": "layers/h1.png", "x": 0, "y": 200, "start": 0.50, "anim": "slidedown", "travel": 120, "dur": 0.50 }
+      ] },
+    { "id": "s01", "type": "composite", "duration": 6.0,
+      "base": "graphics/reveal.png",
+      "layers": [
+        { "png": "layers/tag199.png", "x": 72, "y": 780, "start": 3.00, "anim": "slideup", "travel": 110, "dur": 0.55 }
+      ] },
+    { "id": "s02", "type": "composite", "duration": 6.4,
+      "base": "graphics/dash.png",
+      "layers": [
+        { "png": "layers/inc.png",   "x": 72, "y": 460,  "start": 1.40, "anim": "slideup", "travel": 80, "dur": 0.45 },
+        { "png": "layers/scan.png",  "x": 72, "y": 710,  "start": 3.00, "anim": "slideup", "travel": 80, "dur": 0.45 },
+        { "png": "layers/done.png",  "x": 72, "y": 960,  "start": 4.50, "anim": "slideup", "travel": 80, "dur": 0.45 },
+        { "png": "layers/punch.png", "x": 0,  "y": 1300, "start": 5.30, "anim": "slideup", "travel": 120, "dur": 0.50 }
+      ] },
+    { "id": "s03", "type": "presenter", "fullscreen": true,
+      "source": "presenter/vp2.mp4", "crop": "1080:800:0:620",
+      "duration": 3.0, "offset": 0.0 },
+    { "id": "s04", "type": "composite", "duration": 4.4,
+      "base": "graphics/price.png",
+      "layers": [
+        { "png": "layers/tag59.png", "x": 72,  "y": 560,  "start": 0.40, "anim": "slideup", "travel": 110, "dur": 0.55 },
+        { "png": "layers/sub.png",   "x": 0,   "y": 1060, "start": 1.40, "anim": "fadein", "dur": 0.50 },
+        { "png": "layers/disc.png",  "x": 90,  "y": 1500, "start": 2.60, "anim": "fadein", "dur": 0.60 }
+      ] },
+    { "id": "s05", "type": "composite", "duration": 5.0,
+      "base": "presenter/vp3.mp4", "base_crop": "1080:800:0:620",
+      "layers": [
+        { "png": "graphics/confetti_1.png", "x": 0, "y": 0, "start": 0.80, "anim": "slidedown", "travel": 1500, "dur": 4.0 },
+        { "png": "graphics/confetti_2.png", "x": 0, "y": 0, "start": 1.40, "anim": "slidedown", "travel": 1500, "dur": 4.0 },
+        { "png": "graphics/confetti_3.png", "x": 0, "y": 0, "start": 2.00, "anim": "slidedown", "travel": 1500, "dur": 4.0 }
+      ] },
+    { "id": "s06", "type": "broll", "source": "graphics/endcard.png", "duration": 2.6 }
+  ],
+  "_measured": "sum 31.6 = pacing.total. n01@0.0(3.29) n02@4.2(5.21) n03@10.2(4.94) n04@16.6(2.39) n05@24.0(4.06). Layer triggers (shot-relative): s00 headline@'announcing'(0.50); s01 tag@'$199'(3.03~3.00); s02 rows@'finances'(1.40)/'exactly'(3.00)/post-'wealthy'(4.50), punchline@5.30; s04 card@0.40/sub@1.40/disclaimer@2.60; s05 confetti staggered 0.80/1.40/2.00 over founder close. Applause SFX mixed at ~9.4s + ~24.6s."
+}
