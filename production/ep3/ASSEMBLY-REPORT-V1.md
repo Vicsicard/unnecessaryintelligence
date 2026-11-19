@@ -1,7 +1,7 @@
 # EP3 Assembly — First Review Cut
 
-**Reel:** `http://127.0.0.1:8790/ep3/exports/ep3_reel_v1.mp4` — **17.56s**
-**Master:** `http://127.0.0.1:8790/ep3/exports/ep3_master_v1.mp4` — **18.76s**
+**Reel:** `http://127.0.0.1:8790/ep3/exports/ep3_reel_v1.mp4` — **18.45s**
+**Master:** `http://127.0.0.1:8790/ep3/exports/ep3_master_v1.mp4` — **19.68s**
 Originals untouched in `source/`; all local, $0, no paid calls.
 
 ## Timeline (actual footage, not plan)
@@ -12,7 +12,7 @@ Originals untouched in `source/`; all local, $0, no paid calls.
 | s02 | `s02.mp4` 0→3.2s | Chandelier + `confirm_card` overlay @0.4 (TRUMP BALLROOM CHANDELIER / **$250,000.00** / Gift recipient: President Donald Trump) |
 | s03a | `s03.mp4` 0.35→3.0s | Shout — 1.0→1.12 punch-in zoom (zoompan pre-render) |
 | s03b | `s03.mp4` 3.0→7.0s | Baked 0.9s dead-air pause → "Relax. We used your credit card." → reaction tail |
-| s04 | still | BuyForMe AI card 3.2s + tagline VO |
+| s04 | still | BuyForMe AI card 4.1s (slower SAPI rate=1 VO) + tagline VO |
 | s05 | endcard | Reel: `flash` 0.6s · Master: `standard` 1.8s |
 
 ## Sound map

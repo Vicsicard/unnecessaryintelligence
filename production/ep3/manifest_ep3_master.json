@@ -16,22 +16,57 @@
   "captions_ass": "captions/ep3.ass",
   "endcard_source": "brand/assets/endcard_v4.png",
   "shots": [
-    { "id": "s01", "type": "composite", "duration": 3.9,
-      "base": "source/s01.mp4", "layers": [] },
-    { "id": "s02", "type": "composite", "duration": 3.2,
+    {
+      "id": "s01",
+      "type": "composite",
+      "duration": 3.9,
+      "base": "source/s01.mp4",
+      "layers": []
+    },
+    {
+      "id": "s02",
+      "type": "composite",
+      "duration": 3.2,
       "base": "source/s02.mp4",
       "layers": [
-        { "png": "graphics/confirm_card.png", "x": 40, "y": 1180,
-          "start": 0.4, "dur": 0.22, "anim": "fadein" }
-      ] },
-    { "id": "s03a", "type": "composite", "duration": 2.65,
-      "base": "preview/tmp/s03a_punch.mp4", "layers": [] },
-    { "id": "s03b", "type": "composite", "duration": 4.0,
-      "base": "preview/tmp/s03b_cut.mp4", "layers": [] },
-    { "id": "s04", "type": "composite", "duration": 3.2,
-      "base": "graphics/product_card.png", "layers": [] },
-    { "id": "s05", "type": "endcard", "source": "brand/assets/endcard_v4.png",
-      "duration": 1.8, "variant": "standard" }
+        {
+          "png": "graphics/confirm_card.png",
+          "x": 40,
+          "y": 1180,
+          "start": 0.4,
+          "dur": 0.22,
+          "anim": "fadein"
+        }
+      ]
+    },
+    {
+      "id": "s03a",
+      "type": "composite",
+      "duration": 2.65,
+      "base": "preview/tmp/s03a_punch.mp4",
+      "layers": []
+    },
+    {
+      "id": "s03b",
+      "type": "composite",
+      "duration": 4.0,
+      "base": "preview/tmp/s03b_cut.mp4",
+      "layers": []
+    },
+    {
+      "id": "s04",
+      "type": "composite",
+      "duration": 4.1,
+      "base": "graphics/product_card.png",
+      "layers": []
+    },
+    {
+      "id": "s05",
+      "type": "endcard",
+      "source": "brand/assets/endcard_v4.png",
+      "duration": 1.8,
+      "variant": "standard"
+    }
   ],
-  "_measured": "master ~18.75s — same edit + standard 1.8s UI endcard"
+  "_measured": "master ~18.75s \u00e2\u20ac\u201d same edit + standard 1.8s UI endcard"
 }
