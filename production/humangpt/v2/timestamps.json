@@ -1,0 +1,237 @@
+{
+ "n01": {
+  "start": 0.8,
+  "dur": 4.734,
+  "words": [
+   {
+    "w": "AI",
+    "start": 1.099,
+    "end": 1.44
+   },
+   {
+    "w": "replaced",
+    "start": 1.568,
+    "end": 1.909
+   },
+   {
+    "w": "your",
+    "start": 1.952,
+    "end": 2.08
+   },
+   {
+    "w": "employees.",
+    "start": 2.123,
+    "end": 2.933
+   },
+   {
+    "w": "Now",
+    "start": 3.317,
+    "end": 3.531
+   },
+   {
+    "w": "introducing",
+    "start": 3.659,
+    "end": 4.0
+   },
+   {
+    "w": "the",
+    "start": 4.128,
+    "end": 4.213
+   },
+   {
+    "w": "replacement",
+    "start": 4.256,
+    "end": 4.725
+   },
+   {
+    "w": "for",
+    "start": 4.811,
+    "end": 4.896
+   },
+   {
+    "w": "AI.",
+    "start": 4.939,
+    "end": 5.334
+   }
+  ]
+ },
+ "n02": {
+  "start": 5.9,
+  "dur": 2.688,
+  "words": [
+   {
+    "w": "HumanGPT.",
+    "start": 6.156,
+    "end": 7.329
+   },
+   {
+    "w": "Powered",
+    "start": 7.607,
+    "end": 7.863
+   },
+   {
+    "w": "by",
+    "start": 7.948,
+    "end": 8.033
+   },
+   {
+    "w": "Steve.",
+    "start": 8.076,
+    "end": 8.588
+   }
+  ]
+ },
+ "n03": {
+  "start": 9.2,
+  "dur": 5.338,
+  "words": [
+   {
+    "w": "No",
+    "start": 9.499,
+    "end": 9.669
+   },
+   {
+    "w": "hallucinations.",
+    "start": 9.712,
+    "end": 10.459
+   },
+   {
+    "w": "Understands",
+    "start": 10.736,
+    "end": 11.376
+   },
+   {
+    "w": "sarcasm.",
+    "start": 11.504,
+    "end": 12.272
+   },
+   {
+    "w": "Even",
+    "start": 12.485,
+    "end": 12.656
+   },
+   {
+    "w": "knows",
+    "start": 12.784,
+    "end": 12.912
+   },
+   {
+    "w": "when",
+    "start": 12.997,
+    "end": 13.083
+   },
+   {
+    "w": "a",
+    "start": 13.125,
+    "end": 13.168
+   },
+   {
+    "w": "meeting",
+    "start": 13.211,
+    "end": 13.339
+   },
+   {
+    "w": "should've",
+    "start": 13.509,
+    "end": 13.723
+   },
+   {
+    "w": "been",
+    "start": 13.765,
+    "end": 13.808
+   },
+   {
+    "w": "an",
+    "start": 13.851,
+    "end": 13.893
+   },
+   {
+    "w": "email.",
+    "start": 13.936,
+    "end": 14.338
+   }
+  ]
+ },
+ "n04": {
+  "start": 15.2,
+  "dur": 3.759,
+  "words": [
+   {
+    "w": "Requires",
+    "start": 15.456,
+    "end": 15.925
+   },
+   {
+    "w": "coffee.",
+    "start": 16.011,
+    "end": 16.523
+   },
+   {
+    "w": "Occasionally",
+    "start": 16.779,
+    "end": 17.376
+   },
+   {
+    "w": "complains",
+    "start": 17.504,
+    "end": 17.888
+   },
+   {
+    "w": "about",
+    "start": 18.016,
+    "end": 18.144
+   },
+   {
+    "w": "management.",
+    "start": 18.187,
+    "end": 18.759
+   }
+  ]
+ },
+ "n05": {
+  "start": 19.6,
+  "dur": 4.479,
+  "words": [
+   {
+    "w": "HumanGPT.",
+    "start": 19.856,
+    "end": 21.029
+   },
+   {
+    "w": "The",
+    "start": 21.264,
+    "end": 21.392
+   },
+   {
+    "w": "future",
+    "start": 21.435,
+    "end": 21.605
+   },
+   {
+    "w": "of",
+    "start": 21.776,
+    "end": 21.861
+   },
+   {
+    "w": "artificial",
+    "start": 21.904,
+    "end": 22.203
+   },
+   {
+    "w": "intelligence",
+    "start": 22.373,
+    "end": 22.843
+   },
+   {
+    "w": "is",
+    "start": 23.099,
+    "end": 23.312
+   },
+   {
+    "w": "Steve.",
+    "start": 23.44,
+    "end": 23.879
+   }
+  ]
+ }
+}

@@ -1,0 +1,23 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1080
+PlayResY: 1920
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Default,Inter,63,&H00FFFFFF,&H000B1220,&H800B1220,-1,0,0,0,100,100,0,0,3,15,0,2,60,60,268,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:01.10,0:00:02.93,Default,,0,0,0,,AI replaced your employees.
+Dialogue: 0,0:00:03.32,0:00:04.72,Default,,0,0,0,,Now introducing the replacement
+Dialogue: 0,0:00:04.81,0:00:05.33,Default,,0,0,0,,for AI.
+Dialogue: 0,0:00:06.16,0:00:08.59,Default,,0,0,0,,HumanGPT. Powered by Steve.
+Dialogue: 0,0:00:09.50,0:00:12.27,Default,,0,0,0,,No hallucinations. Understands sarcasm.
+Dialogue: 0,0:00:12.48,0:00:13.17,Default,,0,0,0,,Even knows when a
+Dialogue: 0,0:00:13.21,0:00:13.89,Default,,0,0,0,,meeting should've been an
+Dialogue: 0,0:00:13.94,0:00:14.34,Default,,0,0,0,,email.
+Dialogue: 0,0:00:15.46,0:00:17.89,Default,,0,0,0,,Requires coffee. Occasionally complains
+Dialogue: 0,0:00:18.02,0:00:18.76,Default,,0,0,0,,about management.
+Dialogue: 0,0:00:19.86,0:00:21.86,Default,,0,0,0,,HumanGPT. The future of
+Dialogue: 0,0:00:21.90,0:00:23.88,Default,,0,0,0,,artificial intelligence is Steve.

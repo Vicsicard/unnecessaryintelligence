@@ -1,0 +1,9 @@
+{
+  "_note": "MEASURED from gen_tts wavs (n01 4.73 / n02 2.69 / n03 5.34 / n04 3.76 / n05 4.48). s00 has a 0.8s title lead-in before VO; all other beats start at their shot boundary. total = 26.9",
+  "n01": 0.8,
+  "n02": 5.9,
+  "n03": 9.2,
+  "n04": 15.2,
+  "n05": 19.6,
+  "total": 26.9
+}

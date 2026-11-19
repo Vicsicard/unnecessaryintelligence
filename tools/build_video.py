@@ -88,10 +88,18 @@ class Builder:
             "-c:v","libx264","-pix_fmt","yuv420p","-an",out],check=True,capture_output=True)
         return out
 
-    def graphic(self, states, d, name):
-        """states = [(png, start_sec)] ascending — narration-word-timed alpha-overlay fades."""
+    def graphic(self, states, d, name, transitions=None):
+        """states = [(png, start_sec)] ascending — narration-word-timed reveals.
+
+        transitions (optional list, len == len(states)-1): per-state reveal style.
+          "fade" (default) = alpha-overlay crossfade (stacked lines stay visible)
+          any ffmpeg xfade name ("slideup","wipeleft","slidedown","circleopen",...)
+          = directional transition into that state (replaces previous frame)
+        """
         if len(states) == 1:
             return self.still(states[0][0], d, name)
+        if transitions:
+            return self._graphic_xfade(states, d, name, transitions)
         inputs = ["-loop","1","-t",f"{d:.3f}","-i",states[0][0]]
         fc = ["[0:v]format=yuv420p[bg]"]
         prev = "bg"
@@ -108,11 +116,32 @@ class Builder:
             check=True,capture_output=True)
         return out
 
-    def presenter_fs(self, mp4, d, name, offset=0.0):
+    def _graphic_xfade(self, states, d, name, transitions):
+        """Directional reveals via chained xfade — each state's still lasts to
+        shot end; transition i plays at states[i+1].start for self.xf seconds."""
+        inputs = ["-loop","1","-t",f"{d:.3f}","-i",states[0][0]]
+        for png,st in states[1:]:
+            inputs += ["-loop","1","-t",f"{d-st:.3f}","-i",png]
+        fc = [f"[0:v]format=yuv420p,fps={self.fps}[v0]"]
+        prev = "v0"
+        for i,((png,st),tr) in enumerate(zip(states[1:],transitions),1):
+            fc.append(f"[{i}:v]format=yuv420p,fps={self.fps}[s{i}]")
+            nxt = "v" if i == len(transitions) else f"x{i}"
+            fc.append(f"[{prev}][s{i}]xfade=transition={tr}:duration={self.xf}:offset={st}[{nxt}]")
+            prev = nxt
+        out = os.path.join(self.segdir, name + ".mp4")
+        subprocess.run(["ffmpeg","-y",*inputs,"-filter_complex",";".join(fc),
+            "-map",f"[{prev}]","-t",f"{d:.3f}","-c:v","libx264","-pix_fmt","yuv420p","-an",out],
+            check=True,capture_output=True)
+        return out
+
+    def presenter_fs(self, mp4, d, name, offset=0.0, crop=None):
         """Full-screen presenter: source scaled-to-fill the whole canvas
         (no frame/margins), last frame held to shot duration, subtle bottom
-        scrim for caption contrast."""
-        vf = (f"scale={self.W}:{self.H}:force_original_aspect_ratio=increase,"
+        scrim for caption contrast. Optional `crop` = "w:h:x:y" applied to
+        the source first — removes letterbox bands / tightens framing."""
+        pre = f"crop={crop}," if crop else ""
+        vf = (f"{pre}scale={self.W}:{self.H}:force_original_aspect_ratio=increase,"
               f"crop={self.W}:{self.H},tpad=stop=-1:stop_mode=clone,"
               f"drawbox=y=ih-{(220 if self.H>=1080 else int(self.H*0.2))}:w=iw:h={(220 if self.H>=1080 else int(self.H*0.2))}:color=black@0.30:t=fill,"
               f"fps={self.fps},format=yuv420p")
@@ -122,9 +151,14 @@ class Builder:
             check=True,capture_output=True)
         return out
 
-    def presenter(self, mp4, d, name, offset=0.0):
-        """Presenter in a rounded-corner inset card on brand field — no badge."""
-        w,h = vdim(mp4); aspect = w/h
+    def presenter(self, mp4, d, name, offset=0.0, crop=None):
+        """Presenter in a rounded-corner inset card on brand field — no badge.
+        Optional `crop` = "w:h:x:y" trims the source first."""
+        if crop:
+            w,h = [int(x) for x in crop.split(":")[:2]]
+        else:
+            w,h = vdim(mp4)
+        aspect = w/h
         cw = 960 if aspect > 1 else 620
         if self.H > self.W:  # vertical canvas: widen the inset
             cw = int(self.W * 0.78)
@@ -139,8 +173,9 @@ class Builder:
             hole = Image.new("L",(self.W,self.H),255)
             ImageDraw.Draw(hole).rounded_rectangle([x0,y0,x0+cw,y0+ch],radius=28,fill=0)
             img.putalpha(hole); img.save(frame)
+        pre = f"crop={crop}," if crop else ""
         vf = (f"color=0x101828:s={self.W}x{self.H}:r={self.fps}:d={d:.3f}[bg];"
-              f"[0:v]scale={cw}:-2,format=rgba[c];"
+              f"[0:v]{pre}scale={cw}:-2,format=rgba[c];"
               f"[bg][c]overlay={x0}:{y0}[o1];"
               f"[o1][1:v]overlay=0:0,format=yuv420p,fps={self.fps}")
         out = os.path.join(self.segdir, name + ".mp4")
@@ -226,8 +261,10 @@ class Builder:
             elif t == "reuse":     src = self.resolve(s["source"])
             elif t == "presenter":
                 pf = self.presenter_fs if s.get("fullscreen") else self.presenter
-                src = pf(self.resolve(s["source"]), d, sid, s.get("offset",0.0))
-            elif t == "graphic":   src = self.graphic([(self.resolve(png),st) for png,st in s["states"]], d, sid)
+                src = pf(self.resolve(s["source"]), d, sid, s.get("offset",0.0),
+                         s.get("crop"))
+            elif t == "graphic":   src = self.graphic([(self.resolve(png),st) for png,st in s["states"]], d, sid,
+                                        s.get("transitions"))
             elif t == "broll":     src = self.broll(self.resolve(s["source"]), d, sid,
                                         s.get("in",0.0), s.get("out"),
                                         s.get("fade_in",0.0), s.get("fade_out",0.0), s.get("mode","cover"),

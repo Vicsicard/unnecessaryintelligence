@@ -1,0 +1,19 @@
+1
+00:00:00,800 --> 00:00:05,534
+AI replaced your employees. Now introducing the replacement for AI.
+
+2
+00:00:05,900 --> 00:00:08,588
+HumanGPT. Powered by Steve.
+
+3
+00:00:09,200 --> 00:00:14,538
+No hallucinations. Understands sarcasm. Even knows when a meeting should've been an email.
+
+4
+00:00:15,200 --> 00:00:18,959
+Requires coffee. Occasionally complains about management.
+
+5
+00:00:19,600 --> 00:00:24,079
+HumanGPT. The future of artificial intelligence is Steve.
