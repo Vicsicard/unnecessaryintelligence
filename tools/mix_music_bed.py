@@ -44,7 +44,7 @@ def main():
           f"volume={a.peak_db}dB,afade=t=in:st=0:d={a.fade_in},"
           f"afade=t=out:st={nd - a.fade_out if nd > a.fade_out else 0}:d={a.fade_out}[mus];"
           f"[mus][0:a]{duck}[ducked];"
-          f"[0:a][ducked]amix=inputs=2:duration=first:weights=1,1:normalize=0[m]")
+          f"[0:a][ducked]amix=inputs=2:duration=first:normalize=0[m]")
     if a.video and a.export:
         cmd = ["ffmpeg", "-y", "-i", a.narration, "-i", a.music, "-i", a.video,
                "-filter_complex", fc, "-map", "2:v", "-map", "[m]",

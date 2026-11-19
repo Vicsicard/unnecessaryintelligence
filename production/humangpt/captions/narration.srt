@@ -1,0 +1,15 @@
+1
+00:00:02,500 --> 00:00:07,489
+Meet HumanGPT — the most advanced productivity intelligence ever deployed.
+
+2
+00:00:07,900 --> 00:00:11,101
+It writes your emails. It sits in your meetings.
+
+3
+00:00:11,500 --> 00:00:16,153
+It remembers every password — and only asks for vacation twice a year.
+
+4
+00:00:16,600 --> 00:00:21,211
+HumanGPT. The future of artificial intelligence is Steve.

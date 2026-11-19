@@ -1,18 +1,18 @@
 {
   "brand": "ui",
-  "status": "NOT CONFIGURED — fill before first paid render",
+  "status": "CONFIGURED — HumanGPT v1 identity locked",
   "voice": {
-    "voice_id": null,
-    "name": "TBD — pick/create UI narrator voice; record HeyGen voice_id here",
-    "note": "Script calls it 'the corporate ad voice'. HeyGen stock voice or design_voice. Do NOT reuse MALB Weston or CHM voices."
+    "voice_id": "f49763c1a284420b8f25f16472d8738e",
+    "name": "Garret — Bold & Persuasive (en-US)",
+    "note": "Glossy corporate tech-ad deadpan. HeyGen public catalog voice. Do NOT reuse MALB Weston or CHM voices."
   },
   "presenter": {
-    "group_id": null,
-    "group_name": "Steve (UI presenter — TBD)",
-    "approved_look_ids": {},
-    "approved_look_names": {},
+    "group_id": "469ba809c9f6441ba74a580058d41c4b",
+    "group_name": "Brody (Steve — UI presenter)",
+    "approved_look_ids": { "office8": "e0337c592ccd408c937337a6a33f9fee" },
+    "approved_look_names": { "office8": "Brody Office 8" },
     "retired_look_ids": {},
-    "note": "Steve is an ORDINARY human — the gag. Source options: HeyGen stock/public look (fastest, already licensed), create_prompt_avatar for a bespoke Steve, or a consented real actor photo avatar. Must NOT be Jonas/Jerome — different brands."
+    "note": "Ordinary corporate employee — the gag. Public photo avatar, status completed, landscape-preferred (see manifest note re: 9:16 render vs inset fallback)."
   },
   "policy": {
     "verify_before_render": "python tools/verify_presenter.py --look-id <id>",

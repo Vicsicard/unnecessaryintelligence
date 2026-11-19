@@ -1,16 +1,22 @@
 # Outstanding Blockers — HumanGPT
 
-Ordered; each names its unblock action.
+## RESOLVED (HumanGPT v1 produced)
 
-| # | blocker | impact | unblock |
-|---|---|---|---|
-| 1 | **Steve presenter look not chosen** — `config/ui-presenter-lock.json` has null look ids | Can't render presenter shots (s01, s04) or verify_presenter passes | Pick: HeyGen stock/public look (fastest, licensed), `create_prompt_avatar`, or consented actor photo avatar → record `group_id`/`approved_look_ids` |
-| 2 | **UI narrator voice not chosen** — `voice_id` null | Can't run `gen_tts.py` (fails closed) | Pick HeyGen stock voice or `design_voice` "corporate tech-ad deadpan" → record `voice_id` |
-| 3 | **`HEYGEN_API_KEY` not in current env** | All paid calls blocked | Resupply the funded Dev API key (existed Nov 16–17 for MALB Video A) or use HeyGen MCP tools |
-| 4 | **Script not owner-approved** | Gate 1 stops all downstream | Owner reads `production/humangpt/SCRIPT.md`, approves or edits `script.json` |
-| 5 | **Music bed not selected** | Mix step can't run; video is still complete without it | Pick cleared track (CC-BY w/ attribution, or HeyGen `search_audio_sounds`); log license in ASSET-REQUIREMENTS |
-| 6 | **Avatar engine/cost unconfirmed for 9:16** | Cost estimate has a range, not a point | One dry-run/`v3/videos` quote or check `supported_api_engines` on the chosen look before rendering |
-| 7 | **No UI Metricool brand/channels, no R2 bucket/worker** | Can't publish (not needed to *produce*) | Create Metricool brand + connect Shorts/TikTok/Reels; `wrangler r2 bucket create ui-social-distribution` + deploy `tools/r2-serve` when publishing is approved |
+| # | blocker | resolution |
+|---|---|---|
+| 1 | Steve look | **Brody Office 8** `e0337c592ccd408c937337a6a33f9fee` — locked |
+| 2 | Narrator voice | **Garret** `f49763c1a284420b8f25f16472d8738e` — locked |
+| 3 | `HEYGEN_API_KEY` | supplied by owner for this run (rotate afterward — passed through chat) |
+| 4 | Script approval | owner approved, produced as scripted |
+| 5 | Music bed | HeyGen catalog `01483ce1` mixed via `mix_music_bed.py` |
+| 6 | 9:16 cost unknown | resolved — landscape photo avatar renders true 9:16; 2 renders = **$0.33** |
+
+## REMAINING
+
+| # | blocker | unblock |
+|---|---|---|
+| 7 | No UI Metricool brand/channels, no R2 bucket/worker | Create Metricool brand + connect Shorts/TikTok/Reels; `wrangler r2 bucket create ui-social-distribution` + deploy `tools/r2-serve` when publishing is approved |
+| 8 | Owner review of the actual export | Watch `production/humangpt/exports/humangpt_v1_music.mp4`; certify or request v1.1 changes |
 
 ## Estimated HumanGPT cost (assumption-labeled)
 

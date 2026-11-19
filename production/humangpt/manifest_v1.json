@@ -16,16 +16,16 @@
   "shots": [
     { "id": "s00", "type": "still", "source": "graphics/title.png", "duration": 2.5 },
     { "id": "s01", "type": "presenter", "fullscreen": true,
-      "source": "presenter/vp1.mp4", "duration": 5.0, "offset": 0.0 },
+      "source": "presenter/vp1.mp4", "duration": 5.4, "offset": 0.0 },
     { "id": "s02", "type": "graphic",
-      "states": [["graphics/claim_0.png", 0], ["graphics/claim_1.png", 2.2]],
-      "duration": 4.3 },
+      "states": [["graphics/claim_0.png", 0], ["graphics/claim_1.png", 2.0]],
+      "duration": 3.6 },
     { "id": "s03", "type": "graphic",
-      "states": [["graphics/claim_2.png", 0], ["graphics/claim_3.png", 2.6]],
+      "states": [["graphics/claim_2.png", 0], ["graphics/claim_3.png", 2.1]],
       "duration": 5.1 },
     { "id": "s04", "type": "presenter", "fullscreen": true,
-      "source": "presenter/vp4.mp4", "duration": 3.6, "offset": 0.0 },
-    { "id": "s05", "type": "still", "source": "graphics/endcard.png", "duration": 2.5 }
+      "source": "presenter/vp4.mp4", "duration": 4.9, "offset": 0.0 },
+    { "id": "s05", "type": "still", "source": "graphics/endcard.png", "duration": 2.0 }
   ],
-  "_provisional_durations": "shots sum to 23.0 = pacing.total (authoritative). RULE: s01 starts at n01 (2.5s), s04 at n04 (16.9s) — presenter shot boundaries align to beat starts so lips don't move before audio. s02/s03 state times are shot-relative: recompute from timestamps.json after captions (claim_1 at 'meetings', claim_3 at 'vacation')."
+  "_measured_durations": "shots sum 23.5 = pacing.total (narration.wav padded to 23.5). Beats: n01@2.5(4.99) n02@7.9(3.20) n03@11.5(4.65) n04@16.6(4.61). s02 claim_1 at 'sits' (9.905-7.9=2.0); s03 claim_3 at 'and' (13.591-11.5=2.1)."
 }

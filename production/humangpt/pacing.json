@@ -1,8 +1,8 @@
 {
-  "_note": "PROVISIONAL — replace with measured wav durations after gen_tts. RULE: each presenter/graphic shot starts exactly at its beat's start; shot duration = beat dur + 0.3s tail (prevents lip-movement leading audio).",
+  "_note": "MEASURED from gen_tts wavs (n01 4.99 / n02 3.20 / n03 4.65 / n04 4.61). Rule: shot starts exactly at beat start; shot dur = beat + ~0.3-0.45 tail. total = last beat end + 2.0s endcard hold.",
   "n01": 2.5,
-  "n02": 7.5,
-  "n03": 11.8,
-  "n04": 16.9,
-  "total": 23.0
+  "n02": 7.9,
+  "n03": 11.5,
+  "n04": 16.6,
+  "total": 23.5
 }
