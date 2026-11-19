@@ -37,15 +37,20 @@ def main():
     ap.add_argument("--music-start", type=float, default=0.0)
     ap.add_argument("--video"); ap.add_argument("--export")
     ap.add_argument("--sfx", action="append", default=[],
-                    help="extra one-shot sound: 'path.wav@start_seconds' (repeatable)")
+                    help="extra one-shot sound: 'path.wav@start_seconds[@gain_db]' (repeatable)")
     a = ap.parse_args()
     nd = dur_of(a.narration)
     sfx_parts, sfx_ins, sfx_labels = [], [], []
     base_idx = 3 if (a.video and a.export) else 2
     for i, spec in enumerate(a.sfx):
-        path, _, t = spec.rpartition("@")
+        parts = spec.rsplit("@", 2)
+        if len(parts) == 3:
+            path, t, gain = parts
+        else:
+            path, _, t = spec.rpartition("@")
+            gain = "0"
         sfx_ins += ["-i", path]
-        sfx_parts.append(f"[{base_idx + i}:a]adelay={int(float(t) * 1000)}|{int(float(t) * 1000)}[s{i}]")
+        sfx_parts.append(f"[{base_idx + i}:a]adelay={int(float(t) * 1000)}|{int(float(t) * 1000)},volume={gain}dB[s{i}]")
         sfx_labels.append(f"[s{i}]")
     duck = f"sidechaincompress=threshold=0.02:ratio=8:attack={a.attack}:release={a.release}:makeup=1"
     fc = (f"[1:a]atrim=start={a.music_start},asetpts=PTS-STARTPTS,"
