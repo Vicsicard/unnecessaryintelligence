@@ -1,7 +1,34 @@
 # HeyGen Avatar 6 — API Investigation & Controlled-Test Plan
 
-Status: **investigation complete · test blocked pending `HEYGEN_API_KEY`**
-(The env var is not present in this session — see Blockers.)
+Status: **investigation + controlled test complete · Avatar 6 Turbo verified
+working on our Developer API · recommendation: adopt as opt-in founder engine**
+
+## Test result (2026-11-19)
+
+| | |
+|---|---|
+| Video | `presenter_avatar6/vp1_a6t.mp4` — 1080×1920, 3.3 s, h264 |
+| Engine | `heygen-avatar-6-turbo`, 1080p, 9:16, motion prompt active |
+| Look | Sebastian Office 11 — `supported_api_engines` confirmed eligible |
+| Audio | existing `audio/n01.wav` (Brock TTS) — same line as baseline `vp1.mp4` |
+| **Actual cost** | **$0.15** — wallet $2.97 → $2.82 (≈ $0.046/s, under the $0.05 advertised) |
+| Billing | Developer API USD wallet — verified numeric before + after |
+| Elapsed | a few minutes end-to-end, comparable to Avatar IV |
+
+### Frame comparison vs Avatar IV baseline (`presenter/vp1.mp4`)
+
+- **Identity:** same Sebastian face, blazer, office environment — character
+  fully preserved.
+- **Motion:** IV holds a static seated posture (hands on desk) for the whole
+  clip; A6T raises **both hands in controlled open-palm presenting gestures**
+  at ~0.5 s and ~2.8 s — exactly the directed motion. Natural mid-speech
+  poses, no comedy overreach.
+- **Quality:** equivalent 1080p sharpness; same landscape-letterbox output
+  shape (handled by existing `base_crop`/`crop` in the renderer).
+- **Lip-sync:** plausible mouth shapes mid-word in sampled frames; full
+  verification is watching the clip — `preview/a6t_*.png` vs `iv_*.png`.
+
+## 1. Compatibility report (verified from official docs)
 
 ## 1. Compatibility report (verified from official docs)
 
@@ -9,8 +36,8 @@ Source: `developers.heygen.com/docs/models/avatar-6` + API reference (Nov 2026).
 
 | # | Question | Answer |
 |---|---|---|
-| 1 | Does our Developer API support Avatar 6? | Yes — via the same `POST /v3/videos` we already use (`X-Api-Key`, `api.heygen.com`). Account-level eligibility unconfirmed until a live look check runs (needs API key). |
-| 2 | Avatar 6 Turbo via same API key? | Yes — same endpoint, `engine.type: "heygen-avatar-6-turbo"`. |
+| 1 | Does our Developer API support Avatar 6? | **Yes — verified live.** Render `a223469a…` completed via `POST /v3/videos` on our API key, billed $0.15 to the API wallet. |
+| 2 | Avatar 6 Turbo via same API key? | **Yes — verified.** `engine.type: "heygen-avatar-6-turbo"` accepted and rendered. |
 | 3 | `/v3/videos` integration support? | Yes — single-avatar requests only (`type: "avatar"`). Not supported: raw-image requests, studio scenes, batch creation, scene editing. |
 | 4 | Engine-selection schema | `"engine": {"type": "heygen-avatar-6[-turbo]", "motion_expressiveness": "default"|"less"}`. Omitting `engine` keeps Avatar IV. |
 | 5 | `motion_prompt` schema | Top-level string field on `POST /v3/videos`; plain-language direction for gestures/expression/posture. Overrides `motion_expressiveness` where they overlap. |
@@ -19,7 +46,7 @@ Source: `developers.heygen.com/docs/models/avatar-6` + API reference (Nov 2026).
 | 8 | 2K via Developer API? | Supported by spec; billed higher (see pricing). Unverified on our wallet until a render runs. |
 | 9 | Photo-plus-audio? | Yes — both routes support photo avatars; the Model API also animates a raw reference photo (`POST /v3/models/avatars`). Our founder is a **photo avatar look** → Application API path. |
 | 10 | Existing voices/audio compatible? | Yes — same speech sources (`script`+`voice_id`, `audio_url`, `audio_asset_id`). Our uploaded WAV assets and Brock voice are unchanged. |
-| 11 | Existing avatar identities reusable? | Conditional — look must list the engine in `supported_api_engines` on `GET /v3/avatars/looks/{id}`. **Founder look eligibility is unverified** (MCP response omits the field; needs API key). |
+| 11 | Existing avatar identities reusable? | **Yes for the founder** — Sebastian Office 11 lists `heygen-avatar-6-turbo` in `supported_api_engines` (verified via `--require-engine` preflight). Other looks must be checked individually the same way. |
 | 12 | Lip-sync/input changes? | Same speech-input contract. Avatar 6 adds motion control fields; legacy top-level `expressiveness` is rejected for Avatar 6 (use `engine.motion_expressiveness`). |
 | 13 | Extra permissions/activation? | None documented for photo-avatar looks. Digital twins require consent flow; video references are Enterprise-gated (`realistic_human_reference_not_allowed`). |
 
@@ -31,7 +58,7 @@ Nov 19 2026) and prior wallet deltas in this project.
 | Engine | 1080p | 2K | Verified? |
 |---|---|---|---|
 | Avatar IV, photo avatar | ~$0.05/s (our observed delta ≈ $0.037–0.04/s) | n/a | ✔ observed on wallet (3.33→2.97 for ~9.8 s) |
-| Avatar 6 Turbo | $0.05/s advertised | $0.0875/s | ✗ advertised — verify from wallet delta |
+| Avatar 6 Turbo | $0.05/s advertised — **$0.046/s actual** (one render) | $0.0875/s | ✔ wallet delta $0.15 for 3.3 s |
 | Avatar 6 (Pro) | $0.10/s advertised | $0.145/s | ✗ advertised |
 
 - Billing unit: **USD per second of output**, metered to the prepaid API
@@ -69,14 +96,14 @@ Nov 19 2026) and prior wallet deltas in this project.
 - Output: `presenter_avatar6/vp1_a6t.mp4` (v1 `presenter/` untouched)
 - Estimated: ~$0.165 at advertised rate; actual = wallet delta.
 
-### Pre-submit checklist (all must pass)
+### Pre-submit checklist (executed)
 
-1. `HEYGEN_API_KEY` present — **BLOCKED: not in environment**
-2. API wallet readable + numeric — pending (needs key)
-3. `verify_presenter.py --look-id f00a2f4b… --character founder --require-engine heygen-avatar-6-turbo` → PREFLIGHT PASS — pending (needs key)
-4. One render only; no retries without authorization.
+1. `HEYGEN_API_KEY` present — ✔ provided by owner in-session
+2. API wallet readable + numeric — ✔ $2.97 before / $2.82 after
+3. `verify_presenter.py --look-id f00a2f4b… --character founder --require-engine heygen-avatar-6-turbo` → **PREFLIGHT PASS**
+4. One render only — ✔ single submit, completed first try
 
-## 5. Creative evaluation (expected, pending visual test)
+## 5. Creative evaluation
 
 - **Founder (keynote):** Avatar 6's motion_prompt + `motion_expressiveness`
   directly addresses the flat delivery of Avatar IV — controlled gestures,
@@ -88,12 +115,23 @@ Nov 19 2026) and prior wallet deltas in this project.
 - **Cost parity at 1080p:** Turbo's advertised $0.05/s ≈ Avatar IV photo
   rate → adoption carries no obvious per-second premium (verify actual).
 
-## 6. Blockers / unresolved
+## 6. Recommendation
 
-1. **`HEYGEN_API_KEY` absent from the environment.** Required for wallet
-   verification, the `--require-engine` look check, and the paid test.
-   Action needed: set it (env var or local `.env`) — it is never printed.
-2. Founder look `supported_api_engines` unverified (MCP doesn't expose it).
-3. Actual API rate for Avatar 6 Turbo unconfirmed until a billed render.
-4. 2K availability on this account unconfirmed.
-5. Failed-generation billing behavior undocumented.
+**Adopt Avatar 6 Turbo as the opt-in engine for the ProsperityAI founder**
+(and likely future exec-presenter characters): real gesture control, identity
+preserved, and the actual rate (~$0.046/s) is within ~15% of our observed
+Avatar IV cost. Keep Avatar IV as the pipeline default — Steve's flat,
+restrained delivery is the joke, and Brody Office 8's engine support is
+unverified. Engine is already opt-in per jobs file via `avatar_engine`.
+
+## 7. Blockers / unresolved
+
+1. ~~`HEYGEN_API_KEY` absent~~ — resolved (owner supplied in-session).
+   Note: the key is not persisted; each new session needs it re-supplied.
+2. Steve/Brody look `supported_api_engines` not yet checked — run
+   `--require-engine` before any Avatar 6 Steve render.
+3. 2K availability on this account unconfirmed (not needed — we crop to
+   1080×1920 anyway; 1080p is the economical choice).
+4. Failed-generation billing behavior undocumented — no auto-retries stands.
+5. Avatar 6 standard ($0.10/s advertised) not tested — gated in policy until
+   a separate authorization.
